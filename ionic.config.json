@@ -1,0 +1,7 @@
+{
+  "name": "XpressTrans",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
