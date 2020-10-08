@@ -6,33 +6,43 @@
     </div>
 
 
-  <div class="ion-text-center ion-margin-vertical">
-    <ion-item class="ion-text-center reciever_name">
-      <ion-label color="dark">
-        <h1><b>Reciever Name</b></h1>
-        <p style="color: #f1a752;">data.code</p>
-      </ion-label>
-    </ion-item>
-  </div>
+    <div class="ion-text-center ion-margin-vertical delivery_item">
+      <ion-item class="ion-text-center reciever_name" lines="none" color="transparent">
+        <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="light" (click)="backbtn()">
+        </ion-icon>
+        <ion-label color="light">
+          <h2>CZ0651,Roztylska 2321/19</h2>
+          <p>CZ-14800 Prague</p>
+        </ion-label>
+      </ion-item>
+    </div>
 
-    <ion-item *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
-      <ion-label color="dark" position="fixed">množství</ion-label>
-      <ion-input type="number" value="item" placeholder="111111" 
-      (keyup)="getTotal()"></ion-input>
-    </ion-item>      
+    <div class="data_item">
+      <ion-item *ngFor="let item of items" lines="none">
+        <ion-label color="dark">{{item.item_name}}</ion-label>
+        <ion-icon color="success" name="checkmark-outline"></ion-icon>
+        <!-- <ion-input type="number" value="item.item_name" placeholder="2662467" (keyup)="getTotal()"></ion-input> -->
+      </ion-item>
+    </div>
 
+    <div class="ion-text-center">
+      <ion-item class="ion-text-center" color="tranparent" lines="none">
+        <ion-label color="primary">
+          <p style="font-size:17px;"><b>Celkem dodáno</b></p>
+        </ion-label>
+      </ion-item>
 
-  <div class="ion-text-center ion-margin">
-    <p style="font-size:17px;"><b>Celkem dodáno</b></p>
-  </div>
+    </div>
 
-  <ion-item color="transparent">
+    <ion-item color="transparent">
       <ion-textarea placeholder="Poznámka v případě nesrovnalostí" name="notes"></ion-textarea>
-  </ion-item>
-  <div class="btns ion-text-center ion-margin-vertical">
-  <ion-button expand="block" shape="round" color="primary" (click)="submit()" >POTVRDIT DODÁNÍ</ion-button>
-  <ion-button class="ion-margin-top" expand="block" shape="round" color="dark" (click)="cancel()" >ZRUŠIT</ion-button>
-</div>
-</div>
+    </ion-item>
+    <div class="btns ion-text-center ion-margin-vertical">
+      <ion-button class="btn" expand="block" shape="round" color="primary" (click)="submit()">POTVRDIT DODÁNÍ
+      </ion-button>
+      <ion-button class="btn ion-margin-top" expand="block" shape="round" color="medium" (click)="cancel()">ZRUŠIT
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
-<div class="bg"></div>
+<!-- <div class="bg"></div> -->

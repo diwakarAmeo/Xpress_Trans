@@ -25,11 +25,19 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+* {
+    font-family: "33535gillsansmt" !important;
+}
 
+@font-face {
+    font-family: "33535gillsansmt";
+    src: url("./assets/css/33535gillsansmt.eot");
+    src: local("33535gillsansmt"), url("./assets/css/33535gillsansmt.woff") format("woff"),
+        url("./assets/css/33535gillsansmt.ttf") format("truetype");
+}
 
 ion-content {
     --background: #f3f2f2;
-
     .logo-container {
         text-align: center;
         margin-top: 3rem;
