@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="content">
+    <div class="logo_container ion-margin-top ion-text-center">
+      <img src="assets/imgs/brand_logo_remo.png" class="brand_logo">
+    </div>
+
+
+  <div class="ion-text-center ion-margin-vertical">
+    <ion-item class="ion-text-center reciever_name">
+      <ion-label color="dark">
+        <h1><b>Reciever Name</b></h1>
+        <p style="color: #f1a752;">data.code</p>
+      </ion-label>
+    </ion-item>
+  </div>
+
+    <ion-item *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+      <ion-label color="dark" position="fixed">množství</ion-label>
+      <ion-input type="number" value="item" placeholder="111111" 
+      (keyup)="getTotal()"></ion-input>
+    </ion-item>      
+
+
+  <div class="ion-text-center ion-margin">
+    <p style="font-size:17px;"><b>Celkem dodáno</b></p>
+  </div>
+
+  <ion-item color="transparent">
+      <ion-textarea placeholder="Poznámka v případě nesrovnalostí" name="notes"></ion-textarea>
+  </ion-item>
+  <div class="btns ion-text-center ion-margin-vertical">
+  <ion-button expand="block" shape="round" color="primary" (click)="submit()" >POTVRDIT DODÁNÍ</ion-button>
+  <ion-button class="ion-margin-top" expand="block" shape="round" color="dark" (click)="cancel()" >ZRUŠIT</ion-button>
+</div>
+</div>
+</ion-content>
+<div class="bg"></div>

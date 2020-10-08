@@ -1,0 +1,14 @@
+ion-content {
+    ion-item{
+        margin: 2px 0px;
+    }
+    ion-button {
+        --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        height: 50px;
+    }
+    .reciever_name {
+        border-radius: 12px;
+        box-shadow: 7px 7px 15px rgba($color: #000000, $alpha: 0.1);
+    }
+}

@@ -24,3 +24,45 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+ion-content {
+    --background: #f3f2f2;
+
+    .logo-container {
+        text-align: center;
+        margin-top: 3rem;
+
+        .brand_logo {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: auto;
+            filter: drop-shadow(50px 50px 100px rgba(0, 0, 0, 0.9)) !important;
+        }
+    }
+}
+
+.bg {
+    position: absolute;
+    top: -150px;
+    left: -100px;
+    z-index: 1;
+    width: 300px;
+    height: 300px;
+    opacity: .1;
+    border-radius: 50%;
+    background-image: url("/assets/imgs/geometrica.png");
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width:768px) {
+    .bg {
+        position: absolute;
+        top: -330px;
+        left: -210px;
+        width: 600px;
+        height: 600px;
+    }
+}

@@ -1,0 +1,45 @@
+ion-content{
+ion-item {
+  border-radius: 12px;
+}
+
+ion-button {
+  --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  height: 50px;
+
+  .icon-scan-1 {
+    position: relative;
+    left: 20px;
+  }
+
+  .icon-keypad {
+    position: relative;
+    left: 7px;
+  }
+
+  .icon-scan-2 {
+    position: relative;
+    left: 15px;
+  }
+}
+}
+.btns{
+  position: relative;
+  right: 60px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.is-invalid, .invalid-feedback {
+  color: red;
+  padding: 20px 0 0 10px;
+  position: relative;
+  z-index: 99;
+  font-size: 13px;
+  transition: 1.5s ease-in-out;
+}
