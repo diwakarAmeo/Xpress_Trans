@@ -9,10 +9,6 @@ import { NavController } from '@ionic/angular';
 export class ItemListComponent implements OnInit {
 
   items:any[] = [
-    {item_name:'P/663553/DY/2020+10/2020'},
-    { item_name: 'P/663553/DY/2020+10/2020' },
-    { item_name: 'P/663553/DY/2020+10/2020' },
-    { item_name: 'P/663553/DY/2020+10/2020' },
     { item_name: 'P/663553/DY/2020+10/2020' },
     { item_name: 'P/663553/DY/2020+10/2020' },
     { item_name: 'P/663553/DY/2020+10/2020' },
