@@ -22,11 +22,11 @@
           </ion-item>
           <div class="invalid-feedback"
             *ngIf="(registerFormControl.phonenumber.touched || submitted) && registerFormControl.phonenumber.errors?.required">
-            * Phonenumber is required *
+            Phonenumber is required *
           </div>
           <div class="invalid-feedback"
             *ngIf="(registerFormControl.phonenumber.touched || dirty || submitted) && registerFormControl.phonenumber.errors?.invalidPassword">
-            * minimum 9 digits required *
+            Minimum 9 digits required *
           </div>
         </form>
       </ion-col>

@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { FormValidationService } from 'src/app/services/form-validation.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
