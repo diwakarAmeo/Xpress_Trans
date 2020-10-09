@@ -15,7 +15,6 @@ export class BaseService {
     private setHeader() {
         let headerJson = {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
         }
         const headers = new HttpHeaders(headerJson);
         return headers;

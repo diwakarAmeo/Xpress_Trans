@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
-import { BarcodeService } from 'src/app/services/barcode-service';
-import { HelperService } from 'src/app/services/helper-service';
 
 import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error-modal.component';
+
+import { HomeService } from 'src/app/services/home-service';
+import { HelperService } from 'src/app/services/helper-service';
+import { BarcodeService } from 'src/app/services/barcode-service';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +19,10 @@ export class HomePage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private navctrl: NavController,
+    private homeService: HomeService,
+    private modalctrl: ModalController,
     private helperService: HelperService,
     private barcodeService: BarcodeService,
-    private modalctrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -32,6 +35,65 @@ export class HomePage implements OnInit {
     return this.registerForm.get('phonenumber');
   }
 
+  scan() {
+    this.barcodeService.scan('QR_CODE').then((res: any) => {
+      if (!res.cancelled) {
+        if (res.text) {
+          let req = {
+            phone: this.phonenumber.value,
+            code: res.text
+          }
+          localStorage.setItem('item', JSON.stringify(req));
+          this.scanRequestCode(req);
+        } else {
+          this.helperService.showAlert('Please try again');
+        }
+      }
+    }, (err: any) => {
+      console.log(err);
+      this.helperService.showAlert(err.message);
+    })
+  }
+
+  scanRequestCode(data: any) {
+    this.homeService.requestCode(data).then((res: any) => {
+    }, (err: any) => {
+      this.helperService.errorMessage(err);
+    })
+  }
+
+  scanPickup() {
+    this.barcodeService.scan('QR_CODE').then((res: any) => {
+      if (!res.cancelled) {
+        if (res.text) {
+          let req = {
+            phone: this.phonenumber.value,
+            code: res.text
+          }
+          localStorage.setItem('item', JSON.stringify(req));
+          this.scanPickUpCode(req);
+        } else {
+          this.helperService.showAlert('Please try again');
+        }
+      }
+    }, (err: any) => {
+      console.log(err);
+      this.helperService.showAlert(err.message);
+    })
+  }
+
+  scanPickUpCode(data: any) {
+    this.homeService.postQrCode(data).then((res: any) => {
+      debugger;
+    }, (err: any) => {
+      this.helperService.errorMessage(err);
+    })
+  }
+
+  manualEntry() {
+    this.navctrl.navigateForward(['/manual']);
+  }
+
   async presentModal() {
     const modal = await this.modalctrl.create({
       component: ErrorModalComponent,
@@ -42,29 +104,6 @@ export class HomePage implements OnInit {
 
     const data = await modal.onDidDismiss();
     console.log(data)
-
   }
 
-  scan() {
-    this.presentModal();
-    this.barcodeService.scan('QR_CODE').then((res: any) => {
-      debugger;
-    }, (err: any) => {
-      console.log(err);
-      this.helperService.showAlert(err.message);
-    })
-  }
-
-  scanPickup() {
-    this.barcodeService.scan('QR_CODE').then((res: any) => {
-      debugger;
-    }, (err: any) => {
-      console.log(err);
-      this.helperService.showAlert(err.message);
-    })
-  }
-
-  manualEntry() {
-    this.navctrl.navigateForward(['/manual']);
-  }
 }  
