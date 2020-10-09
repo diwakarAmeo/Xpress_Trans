@@ -1,18 +1,16 @@
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <div class="content">
+  <div class="content ion-margin-top">
     <div class="logo_container ion-margin-top ion-text-center">
       <img src="assets/imgs/brand_logo_remo.png" class="brand_logo">
     </div>
 
     <ion-row class="ion-text-center ion-margin-top">
       <ion-col>
-        <h1><b>Skenovat</b></h1>
-        <p>Musíte zvolit níže uvedené možnosti skenování.</p>
-      </ion-col>
+     </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row class="ion-margin-top">
       <ion-col class="ion-margin-top">
         <form id="zadatTelefonnSlo-form1" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <ion-item color="transparent">
@@ -41,41 +39,25 @@
         </ion-button>
       </ion-col>
       <ion-col size="12">
-        <ion-button expand="block" color="medium" (click)="manualEntry('delivery')"
+        <ion-button class="ion-margin-bottom keypad" expand="block" color="medium" (click)="manualEntry('delivery')"
           [disabled]="this.registerForm.invalid">
           <ion-icon slot="end" name="keypad-outline" class="icon-keypad"></ion-icon>
           RUČNÍ ZADÁNÍ
         </ion-button>
       </ion-col>
-      <ion-col size="12">
-        <ion-button expand="block" color="dark" (click)="scanPickup()"
+      <ion-col size="12" class="ion-margin-top ion-padding-top">
+        <ion-button expand="block" class="ion-margin-top" color="dark" (click)="scanPickup()"
           [disabled]="this.registerForm.invalid">
           <ion-icon slot="end" name="scan-outline" class="icon-scan-2"></ion-icon>
           VYZVEDNUTÍ
         </ion-button>
       </ion-col>
     </ion-row>
-    <!-- <ion-fab color="medium" vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button color="medium">
-      <ion-icon name="scan-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <div class="btns">
-      <ion-button expand="block" shape="round" color="primary" (click)="scan()">
-        <ion-icon slot="end" name="scan-outline" class="icon-scan-1"></ion-icon>
-        DORUČENÍ
-      </ion-button>
-      <ion-button expand="block" shape="round" color="medium" (click)="manualEntry('delivery')" class="ion-margin-vertical">
-        <ion-icon slot="end" name="keypad-outline" class="icon-keypad"></ion-icon>
-        RUČNÍ ZADÁNÍ
-      </ion-button>
-      <ion-button expand="block" shape="round" color="dark" (click)="scanPickup()">
-        <ion-icon slot="end" name="scan-outline" class="icon-scan-2"></ion-icon>
-        VYZVEDNUTÍ
-      </ion-button>
-      </div>
-    </ion-fab-list>
-  </ion-fab> -->
   </div>
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-item class="ion-text-center" color="transparent"lines="none">
+    <ion-label color="medium">v1.0.0</ion-label>
+  </ion-item>
+</ion-footer>
 <div class="bg"></div>
