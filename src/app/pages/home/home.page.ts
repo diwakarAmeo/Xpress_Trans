@@ -48,6 +48,15 @@ export class HomePage implements OnInit{
     }
   }
 
+  scan() {
+    this.barcodeService.scan('QR_CODE').then((res: any) => {
+      debugger;
+    }, (err: any) => {
+      console.log(err);
+      this.helperService.showAlert(err.message);
+    })
+  }
+
   manualEntry(){
     this.navctrl.navigateForward(['/manual']);
   }
@@ -56,7 +65,6 @@ export class HomePage implements OnInit{
     this.barcodeService.scan('QR_CODE').then((res: any) => {
       debugger;
     }, (err: any) => {
-      debugger;
       console.log(err);
       this.helperService.showAlert(err.message);
     })
