@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { FormValidationService } from 'src/app/services/form-validation.service';
 
 @Component({
   selector: 'app-home',

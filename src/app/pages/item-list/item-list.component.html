@@ -25,16 +25,17 @@
       </ion-item>
     </div>
 
-    <div class="ion-text-center">
-      <ion-item class="ion-text-center" color="tranparent" lines="none">
+    <div class="delivered">
+      <ion-item lines="none">
         <ion-label color="primary">
           <p style="font-size:17px;"><b>Celkem dodáno</b></p>
         </ion-label>
+        <ion-text color="medium"><b>21/30</b></ion-text>
       </ion-item>
     </div>
 
-    <ion-item color="transparent">
-      <ion-textarea placeholder="Poznámka v případě nesrovnalostí" name="notes"></ion-textarea>
+    <ion-item>
+      <ion-textarea placeholder="Sem napište poznámku pro případ nesrovnalostí ..." name="notes" mode="ios"></ion-textarea>
     </ion-item>
     <div class="btns ion-text-center ion-margin-vertical">
       <ion-button class="btn" expand="block" shape="round" color="primary" (click)="submit()">POTVRDIT DODÁNÍ
