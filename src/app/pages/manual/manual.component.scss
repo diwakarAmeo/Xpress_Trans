@@ -3,15 +3,22 @@ ion-content {
         border-radius: 12px;
     }
 
+    // ion-button.cancel-btn {
+    //     --box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    //     z-index: 999;
+    //     height: 35px;
+    //     font-size: 14px;
+    // }
+
     ion-button {
         --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
         z-index: 999;
         height: 60px;
-}
+    }
 
-input[type=text]::-webkit-inner-spin-button,
-input[type=text]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
+    input[type=text]::-webkit-inner-spin-button,
+    input[type=text]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
