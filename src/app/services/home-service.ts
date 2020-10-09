@@ -8,13 +8,13 @@ export class HomeService {
         private baseService: BaseService,
     ) { }
 
-    getCatalogList() {
-        const url = `catalog`;
+    requestCode(data: any) {
+        const url = `XPT-MobDistribuce.php?M=${data.phonenumber}|${data.code}`;
         return this.baseService.get(url);
     }
 
-    getCatalogById(id: any) {
-        const url = `getdetails?id=${id}`;
+    postQrCode(data: any) {
+        const url = `XPT-MobDistribuceSVOZ.php?M=${data.phonenumber}|${data.code}`;
         return this.baseService.get(url);
     }
 
