@@ -11,7 +11,6 @@ import { HelperService } from 'src/app/services/helper-service';
 })
 export class HomePage implements OnInit{
   registerForm: FormGroup;
-  submitted = false;
 
   constructor(
     private fb: FormBuilder,
@@ -22,30 +21,12 @@ export class HomePage implements OnInit{
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      phonenumber: ['', Validators.compose([Validators.required, this.patternValidator()])],
+      phonenumber: ['', Validators.compose([Validators.required, Validators.maxLength(9)])],
     });
   }
 
-  patternValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } => {
-      if (!control.value) {
-        return null;
-      }
-      const regex = new RegExp(/^.{9,}$/);
-      const valid = regex.test(control.value);
-      return  valid ? null : { invalidPassword: true };
-    };
-  }
-
-  get registerFormControl() {
-    return this.registerForm.controls;
-  }
-
-  validate() {
-    this.submitted = true;
-    if (this.registerForm.valid) {
-      console.table(this.registerForm.value);
-    }
+  get phonenumber() {
+    return this.registerForm.get('phonenumber');
   }
 
   scan() {
@@ -53,12 +34,8 @@ export class HomePage implements OnInit{
       debugger;
     }, (err: any) => {
       console.log(err);
-      this.helperService.showAlert(err.message);
+      this.helperService.showAlert(err);
     })
-  }
-
-  manualEntry(){
-    this.navctrl.navigateForward(['/manual']);
   }
 
   scanPickup() {
@@ -66,7 +43,12 @@ export class HomePage implements OnInit{
       debugger;
     }, (err: any) => {
       console.log(err);
-      this.helperService.showAlert(err.message);
+      this.helperService.showAlert(err);
     })
   }
+
+  manualEntry() {
+    this.navctrl.navigateForward(['/manual']);
+  }
+  
 }  

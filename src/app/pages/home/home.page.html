@@ -15,15 +15,15 @@
         <form id="zadatTelefonnSlo-form1" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <ion-item color="transparent">
             <ion-label position="floating">Vaše telefonní číslo</ion-label>
-            <ion-input type="number" inputmode="numeric" placeholder="123456789" (keyup)="validate()" name="phonenumber" formControlName="phonenumber" required>
+            <ion-input type="number" maxlength="9" pattern="\d{9}" inputmode="numeric" placeholder="123456789" formControlName="phonenumber" required>
             </ion-input>
           </ion-item>
           <div class="invalid-feedback"
-            *ngIf="(registerFormControl.phonenumber.touched || submitted) && registerFormControl.phonenumber.errors?.required">
+            *ngIf="(phonenumber.touched) && phonenumber.errors?.required">
             Phonenumber is required *
           </div>
           <div class="invalid-feedback"
-            *ngIf="(registerFormControl.phonenumber.touched || dirty || submitted) && registerFormControl.phonenumber.errors?.invalidPassword">
+            *ngIf="(phonenumber.dirty) && phonenumber.invalid">
             Minimum 9 digits required *
           </div>
         </form>
