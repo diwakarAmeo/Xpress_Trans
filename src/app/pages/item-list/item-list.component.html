@@ -6,13 +6,13 @@
     </div>
 
 
-    <div class="ion-text-center ion-margin-vertical delivery_item">
-      <ion-item class="ion-text-center reciever_name" lines="none" color="transparent">
-        <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="light" (click)="backbtn()">
-        </ion-icon>
-        <ion-label color="light">
-          <h2>CZ0651,Roztylska 2321/19</h2>
-          <p>CZ-14800 Prague</p>
+    <div class="ion-text-center ion-margin-vertical">
+      <ion-item class="ion-text-center reciever_name" lines="none">
+        <!-- <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="primary" (click)="backbtn()">
+        </ion-icon> -->
+        <ion-label color="medium">
+          <h1>CZ0651,Roztylska 2321/19</h1>
+          <h5 style="margin: 10px 0px;">CZ-14800 Prague</h5>
         </ion-label>
       </ion-item>
     </div>
@@ -38,11 +38,11 @@
       <ion-textarea rows="3" placeholder="Sem napište poznámku pro případ nesrovnalostí ..." name="notes" mode="ios"></ion-textarea>
     </ion-item>
     <div class="btns ion-text-center ion-margin-vertical">
-      <ion-button class="btn" expand="block"  color="primary" (click)="submit()">POTVRDIT DODÁNÍ
-        <ion-icon slot="end" name="scan-outline" class="icon-scan-2"></ion-icon>
+      <ion-button class="btn" expand="block"  color="primary" (click)="submit()">SCAN BARCODES
+        <ion-icon slot="end" name="barcode-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
-      <ion-button class="btn ion-margin-top" expand="block"  color="medium" (click)="cancel()">ZRUŠIT
-        <ion-icon slot="end" name="checkmark-done-circle-outline" class="icon-scan-2"></ion-icon>
+      <ion-button class="btn ion-margin-top" expand="block"  color="medium" (click)="cancel()">CONFIRM
+        <ion-icon slot="end" name="checkmark-circle-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
     </div>
   </div>
