@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
-import { ItemListComponent } from './item-list.component';
+import { ManualComponent } from './manual.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ItemListComponent,
+    component: ManualComponent,
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ItemListComponent]
+  declarations: [ManualComponent]
 })
-export class ItemListModule { }
+export class ManualModule { }

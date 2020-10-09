@@ -14,8 +14,8 @@
       <ion-col class="ion-margin-top">
         <form id="zadatTelefonnSlo-form1" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <ion-item color="transparent">
-            <ion-label position="floating">Vaše telefonní číslo</ion-label>
-            <ion-input type="number" inputmode="numeric" (keyup)="validate()" name="phonenumber" formControlName="phonenumber" required>
+            <ion-label position="stacked">Vaše telefonní číslo</ion-label>
+            <ion-input type="number" inputmode="numeric" placeholder="123456789" (keyup)="validate()" name="phonenumber" formControlName="phonenumber" required>
             </ion-input>
           </ion-item>
           <div class="invalid-feedback"

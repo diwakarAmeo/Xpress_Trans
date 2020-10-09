@@ -10,9 +10,9 @@
       <ion-item class="ion-text-center reciever_name" lines="none">
         <!-- <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="primary" (click)="backbtn()">
         </ion-icon> -->
-        <ion-label color="medium">
-          <h1>CZ0651,Roztylska 2321/19</h1>
-          <h5 style="margin: 10px 0px;">CZ-14800 Prague</h5>
+        <ion-label color="dark">
+          <h2 style="font-size: 18px;"><b>CZ0651,Roztylska 2321/19</b></h2>
+          <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p>
         </ion-label>
       </ion-item>
     </div>
@@ -35,13 +35,14 @@
     </div>
 
     <ion-item>
-      <ion-textarea rows="3" placeholder="Sem napište poznámku pro případ nesrovnalostí ..." name="notes" mode="ios"></ion-textarea>
+      <ion-textarea rows="3" placeholder="Sem napište poznámku pro případ nesrovnalostí ..." name="notes" mode="ios">
+      </ion-textarea>
     </ion-item>
     <div class="btns ion-text-center ion-margin-vertical">
-      <ion-button class="btn" expand="block"  color="primary" (click)="submit()">SCAN BARCODES
+      <ion-button class="btn" expand="block" color="primary" (click)="submit()">SCAN BARCODES
         <ion-icon slot="end" name="barcode-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
-      <ion-button class="btn ion-margin-top" expand="block"  color="medium" (click)="cancel()">CONFIRM
+      <ion-button class="btn ion-margin-top" expand="block" color="medium" (click)="cancel()">CONFIRM (send JSON)
         <ion-icon slot="end" name="checkmark-circle-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
     </div>

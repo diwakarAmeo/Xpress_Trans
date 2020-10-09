@@ -39,11 +39,3 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.is-invalid, .invalid-feedback {
-  color: rgb(241, 48, 48);
-  padding: 6px 0px 0px 18px;
-  position: relative;
-  z-index: 99;
-  font-size: 14px;
-  opacity: .8;
-}

@@ -49,7 +49,7 @@ export class HomePage implements OnInit{
   }
 
   manualEntry(){
-    this.navctrl.navigateForward(['/item-list']);
+    this.navctrl.navigateForward(['/manual']);
   }
 
   scanPickup() {

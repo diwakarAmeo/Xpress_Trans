@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="content ion-margin-top">
+    <div class="logo_container ion-margin-top ion-text-center">
+      <img src="assets/imgs/brand_logo_remo.png" class="brand_logo">
+    </div>
+
+    <ion-row class="ion-text-center ion-margin-top">
+      <ion-col>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin-top">
+      <ion-col class="ion-margin-top">
+        <form>
+          <ion-item color="transparent">
+            <ion-label position="floating">Přepište řetezec vedle QR kódu</ion-label>
+            <ion-input type="text" inputmode="text" (keyup)="validate()"
+             placeholder="P-6AA8520-31.07.2018-1-CCC1047" name="code"
+              required></ion-input>
+          </ion-item>
+          <!-- <div class="invalid-feedback"
+            *ngIf="(registerFormControl.phonenumber.touched || submitted) && registerFormControl.phonenumber.errors?.required">
+            Phonenumber is required *
+          </div>
+          <div class="invalid-feedback"
+            *ngIf="(registerFormControl.phonenumber.touched || dirty || submitted) && registerFormControl.phonenumber.errors?.invalidPassword">
+            Minimum 9 digits required *
+          </div> -->
+        </form>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-margin-top">
+      <ion-col size="12">
+        <ion-button expand="block" color="primary" (click)="scan()">
+        POKRAČOVAT
+        </ion-button>
+      </ion-col>
+      <ion-col size="12" class="ion-margin-top">
+        <ion-button expand="block" color="dark" (click)="scanPickup()">
+        ZRUŠIT
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+      <div class="ion-text-center ion-padding invalid-feedback" [hidden]=""></div>
+
+  </div>
+</ion-content>
+<div class="bg"></div>

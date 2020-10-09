@@ -7,8 +7,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'item-list', 
-    loadChildren: () => import('./pages/item-list/item-list.module').then(m => m.ItemListModule)
+    path: 'detail', 
+    loadChildren: () => import('./pages/detail/detail.module').then(m => m.DetailModule)
+  },
+  {
+    path: 'manual',
+    loadChildren: () => import('./pages/manual/manual.module').then(m => m.ManualModule)
   },
   {
     path: '',

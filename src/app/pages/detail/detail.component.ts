@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-item-list',
-  templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.scss'],
+  selector: 'app-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.scss'],
 })
-export class ItemListComponent implements OnInit {
+export class DetailComponent implements OnInit {
 
-  items:any[] = [
+  items: any[] = [
     { item_name: 'P/663553/DY/2020+10/2020' },
     { item_name: 'P/663553/DY/2020+10/2020' },
     { item_name: 'P/663553/DY/2020+10/2020' },
@@ -19,11 +19,11 @@ export class ItemListComponent implements OnInit {
   ]
 
   constructor(private navctrl: NavController) { }
-  
-  ngOnInit() {}
 
-  backbtn(): void{
-   this.navctrl.navigateBack(['/home']);
+  ngOnInit() { }
+
+  backbtn(): void {
+    this.navctrl.navigateBack(['/home']);
   }
 
 }
