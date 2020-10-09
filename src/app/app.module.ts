@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HelperService } from './services/helper-service';
 import { BarcodeService } from './services/barcode-service';
+import { BaseService } from './services/base-service';
+import { HomeService } from './services/home-service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,9 +21,11 @@ import { BarcodeService } from './services/barcode-service';
   providers: [
     StatusBar,
     SplashScreen,
-    BarcodeScanner,
+    BaseService,
+    HomeService,
     HelperService,
     BarcodeService,
+    BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
