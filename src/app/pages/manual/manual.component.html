@@ -19,14 +19,6 @@
              placeholder="P-6AA8520-31.07.2018-1-CCC1047" name="code"
               required></ion-input>
           </ion-item>
-          <!-- <div class="invalid-feedback"
-            *ngIf="(registerFormControl.phonenumber.touched || submitted) && registerFormControl.phonenumber.errors?.required">
-            Phonenumber is required *
-          </div>
-          <div class="invalid-feedback"
-            *ngIf="(registerFormControl.phonenumber.touched || dirty || submitted) && registerFormControl.phonenumber.errors?.invalidPassword">
-            Minimum 9 digits required *
-          </div> -->
         </form>
       </ion-col>
     </ion-row>
@@ -38,7 +30,7 @@
         </ion-button>
       </ion-col>
       <ion-col size="12" class="ion-margin-top">
-        <ion-button class="cancel-btn" expand="block" color="dark">
+        <ion-button class="cancel-btn" expand="block" color="dark" (click)="cancelAction()">
         ZRUŠIT
         </ion-button>
       </ion-col>
