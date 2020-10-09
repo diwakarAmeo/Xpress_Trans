@@ -9,7 +9,7 @@ export class HomeService {
     ) { }
 
     requestCode(data: any) {
-        const url = `XPT-MobDistribuce.php?M=${data.phonenumber}|${data.code}`;
+        const url = `XPT-MobDistribuce.php?M=${data.phone}|${data.code}`;
         return this.baseService.get(url);
     }
 
