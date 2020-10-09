@@ -2,22 +2,26 @@ ion-content{
 ion-item {
   border-radius: 12px;
 }
-
-ion-button {
-  --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  height: 50px;
-
-  .icon-scan-1 {
+ion-button.keypad{
+  height: 35px;
+  font-size: 11px;
+  --box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  .icon-keypad {
     position: relative;
     left: 20px;
   }
 
-  .icon-keypad {
-    position: relative;
-    left: 7px;
-  }
+}
 
+ion-button:not(.keypad) {
+  --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  height: 60px;
+   
+  .icon-scan-1 {
+    position: relative;
+    left: 23px;
+  }
   .icon-scan-2 {
     position: relative;
     left: 15px;
