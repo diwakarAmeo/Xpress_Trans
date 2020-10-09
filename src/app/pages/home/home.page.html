@@ -7,7 +7,7 @@
 
     <ion-row class="ion-text-center ion-margin-top">
       <ion-col>
-     </ion-col>
+      </ion-col>
     </ion-row>
 
     <ion-row class="ion-margin-top">
@@ -15,7 +15,8 @@
         <form id="zadatTelefonnSlo-form1" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <ion-item color="transparent">
             <ion-label position="floating">Vaše telefonní číslo</ion-label>
-            <ion-input type="number" inputmode="numeric" (keyup)="validate()" name="phonenumber" formControlName="phonenumber" required>
+            <ion-input type="number" inputmode="numeric" (keyup)="validate()" name="phonenumber"
+              formControlName="phonenumber" required>
             </ion-input>
           </ion-item>
           <div class="invalid-feedback"
@@ -32,8 +33,7 @@
 
     <ion-row class="ion-text-center ion-margin-top">
       <ion-col size="12">
-        <ion-button expand="block" color="primary" (click)="scan()"
-          [disabled]="this.registerForm.invalid">
+        <ion-button expand="block" color="primary" (click)="scan()" [disabled]="this.registerForm.invalid">
           <ion-icon slot="end" name="scan-outline" class="icon-scan-1"></ion-icon>
           DORUČENÍ
         </ion-button>
@@ -56,7 +56,7 @@
   </div>
 </ion-content>
 <ion-footer class="ion-no-border">
-  <ion-item class="ion-text-center" color="transparent"lines="none">
+  <ion-item class="ion-text-center" color="transparent" lines="none">
     <ion-label color="medium">v1.0.0</ion-label>
   </ion-item>
 </ion-footer>
