@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { FormValidationService } from 'src/app/services/form-validation.service';
 
 const routes: Routes = [
   {
@@ -23,6 +22,5 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [HomePage],
-  providers: [FormValidationService,]
 })
 export class HomePageModule {}

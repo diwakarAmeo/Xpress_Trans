@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { FormValidationService } from 'src/app/services/form-validation.service';
 
@@ -15,13 +15,23 @@ export class HomePage implements OnInit{
   constructor(
     private fb: FormBuilder,
     private navctrl: NavController,
-    private customValidator: FormValidationService
   ) { }
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      phonenumber: ['', Validators.compose([Validators.required, this.customValidator.patternValidator()])],
+      phonenumber: ['', Validators.compose([Validators.required, this.patternValidator()])],
     });
+  }
+
+  patternValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } => {
+      if (!control.value) {
+        return null;
+      }
+      const regex = new RegExp(/^.{9,}$/);
+      const valid = regex.test(control.value);
+      return  valid ? null : { invalidPassword: true };
+    };
   }
 
   get registerFormControl() {
