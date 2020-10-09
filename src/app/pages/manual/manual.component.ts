@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { HomeService } from 'src/app/services/home-service';
 
 @Component({
   selector: 'app-manual',
@@ -7,13 +10,31 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./manual.component.scss'],
 })
 export class ManualComponent implements OnInit {
+  manualForm: FormGroup;
 
-  constructor(private navctrl:NavController) { }
+  constructor(
+    private homeService: HomeService,
+    private navctrl: NavController,
+    private fb: FormBuilder
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.manualForm = this.fb.group({
+      code: ['', [Validators.required]],
+    });
+  }
 
-  cancelAction():void {
-  this.navctrl.navigateBack(['/home']);
+  onSubmit(): void {
+    alert(this.manualForm.value.code);
+    this.homeService.requestCode(this.manualForm.value.code).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+
+  cancelAction(): void {
+    this.navctrl.navigateBack(['/home']);
   }
 
 }

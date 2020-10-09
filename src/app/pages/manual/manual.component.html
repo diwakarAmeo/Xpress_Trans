@@ -12,12 +12,11 @@
 
     <ion-row class="ion-margin-top">
       <ion-col class="ion-margin-top">
-        <form>
+        <form id="zadatTelefonnSlo-form1" [formGroup]="manualForm">
           <ion-item color="transparent">
             <ion-label position="floating">Přepište řetezec vedle QR kódu</ion-label>
-            <ion-input type="text" inputmode="text" (keyup)="validate()"
-             placeholder="P-6AA8520-31.07.2018-1-CCC1047" name="code"
-              required></ion-input>
+            <ion-input type="text" inputmode="text" formControlName="code" placeholder="P-6AA8520-31.07.2018-1-CCC1047"
+              name="code" required></ion-input>
           </ion-item>
         </form>
       </ion-col>
@@ -25,18 +24,18 @@
 
     <ion-row class="ion-text-center ion-margin-top">
       <ion-col size="12">
-        <ion-button expand="block" color="primary">
-        POKRAČOVAT
+        <ion-button expand="block" color="primary" (click)="onSubmit()">
+          POKRAČOVAT
         </ion-button>
       </ion-col>
       <ion-col size="12" class="ion-margin-top">
         <ion-button class="cancel-btn" expand="block" color="dark" (click)="cancelAction()">
-        ZRUŠIT
+          ZRUŠIT
         </ion-button>
       </ion-col>
     </ion-row>
 
-      <div class="ion-text-center ion-padding invalid-feedback" [hidden]=""></div>
+    <div class="ion-text-center ion-padding invalid-feedback" [hidden]=""></div>
 
   </div>
 </ion-content>

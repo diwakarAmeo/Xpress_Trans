@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
 import { BarcodeService } from 'src/app/services/barcode-service';
 import { HelperService } from 'src/app/services/helper-service';
+
 import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error-modal.component';
 
 @Component({

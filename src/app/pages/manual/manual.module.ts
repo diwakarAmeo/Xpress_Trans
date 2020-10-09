@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ManualComponent } from './manual.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { BaseService } from 'src/app/services/base-service';
+import { HomeService } from 'src/app/services/home-service';
 
 const routes: Routes = [
   {
@@ -23,6 +25,7 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ManualComponent]
+  declarations: [ManualComponent],
+  // providers:[BaseService,HomeService]
 })
 export class ManualModule { }
