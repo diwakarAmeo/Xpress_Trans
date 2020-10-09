@@ -35,13 +35,13 @@
     </div>
 
     <ion-item>
-      <ion-textarea placeholder="Sem napište poznámku pro případ nesrovnalostí ..." name="notes" mode="ios"></ion-textarea>
+      <ion-textarea rows="3" placeholder="Sem napište poznámku pro případ nesrovnalostí ..." name="notes" mode="ios"></ion-textarea>
     </ion-item>
     <div class="btns ion-text-center ion-margin-vertical">
-      <ion-button class="btn" expand="block" shape="round" color="primary" (click)="submit()">POTVRDIT DODÁNÍ
+      <ion-button class="btn" expand="block"  color="primary" (click)="submit()">POTVRDIT DODÁNÍ
         <ion-icon slot="end" name="scan-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
-      <ion-button class="btn ion-margin-top" expand="block" shape="round" color="medium" (click)="cancel()">ZRUŠIT
+      <ion-button class="btn ion-margin-top" expand="block"  color="medium" (click)="cancel()">ZRUŠIT
         <ion-icon slot="end" name="checkmark-done-circle-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
     </div>

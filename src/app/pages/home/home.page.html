@@ -17,7 +17,7 @@
         <form id="zadatTelefonnSlo-form1" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <ion-item color="transparent">
             <ion-label position="floating">Vaše telefonní číslo</ion-label>
-            <ion-input type="number" (keyup)="validate()" name="phonenumber" formControlName="phonenumber" required>
+            <ion-input type="number" inputmode="numeric" (keyup)="validate()" name="phonenumber" formControlName="phonenumber" required>
             </ion-input>
           </ion-item>
           <div class="invalid-feedback"
@@ -34,21 +34,21 @@
 
     <ion-row class="ion-text-center ion-margin-top">
       <ion-col size="12">
-        <ion-button expand="block" shape="round" color="primary" (click)="scan()"
+        <ion-button expand="block" color="primary" (click)="scan()"
           [disabled]="this.registerForm.invalid">
           <ion-icon slot="end" name="scan-outline" class="icon-scan-1"></ion-icon>
           DORUČENÍ
         </ion-button>
       </ion-col>
       <ion-col size="12">
-        <ion-button expand="block" shape="round" color="medium" (click)="manualEntry('delivery')"
+        <ion-button expand="block" color="medium" (click)="manualEntry('delivery')"
           [disabled]="this.registerForm.invalid">
           <ion-icon slot="end" name="keypad-outline" class="icon-keypad"></ion-icon>
           RUČNÍ ZADÁNÍ
         </ion-button>
       </ion-col>
       <ion-col size="12">
-        <ion-button expand="block" shape="round" color="dark" (click)="scanPickup()"
+        <ion-button expand="block" color="dark" (click)="scanPickup()"
           [disabled]="this.registerForm.invalid">
           <ion-icon slot="end" name="scan-outline" class="icon-scan-2"></ion-icon>
           VYZVEDNUTÍ
