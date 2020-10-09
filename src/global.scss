@@ -38,13 +38,15 @@
 
 ion-content {
     --background: #f3f2f2;
+
     .logo-container {
         text-align: center;
         margin-top: 3rem;
 
-        .brand_logo {
+        img {
+            max-width: 80% !important;
+            // width: 100%;
             display: block;
-            width: 100%;
             height: auto;
             margin: auto;
             filter: drop-shadow(50px 50px 100px rgba(0, 0, 0, 0.9)) !important;
@@ -68,7 +70,7 @@ ion-content {
 @media screen and (min-width:768px) {
     .bg {
         position: absolute;
-        top: -330px;
+        top: -370px;
         left: -210px;
         width: 600px;
         height: 600px;
