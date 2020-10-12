@@ -31,8 +31,7 @@ export class DetailComponent implements OnInit {
     return this.listItem;
   }
 
-
-  backbtn(): void {
+  cancelAction(): void {
     this.navctrl.navigateBack(['/home']);
   }
 

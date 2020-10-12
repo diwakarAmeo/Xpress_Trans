@@ -13,10 +13,13 @@ ion-content {
         }
     }
 
-    ion-button {
+    ion-button:not(.cancel-btn) {
         --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
-        z-index: 999;
         height: 50px;
+    }
+    ion-button.cancel-btn{
+        --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
+        height: 35px;
     }
 
     .data_item {
