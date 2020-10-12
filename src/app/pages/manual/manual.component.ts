@@ -28,7 +28,7 @@ export class ManualComponent implements OnInit {
   onSubmit(): void {
     console.log(this.manualForm.value);
     this.homeService.requestCode(this.manualForm.value).then((res) => {
-      console.log(res)
+     console.log(res);
     }).catch((err) => {
       console.log(err);
     })
