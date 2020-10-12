@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -10,7 +10,11 @@ export class ErrorModalComponent implements OnInit {
 
   constructor(private modalController: ModalController) { }
 
-  ngOnInit() {}
+  @Input() data;
+
+  ngOnInit() {
+    console.log(this.data)
+  }
 
   dismiss(value = '') :void {
     this.modalController.dismiss(value);
