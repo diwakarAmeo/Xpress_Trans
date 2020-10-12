@@ -87,3 +87,9 @@ ion-content {
     font-size: 14px;
     opacity: .9;
 }
+
+*::-webkit-scrollbar,
+::-webkit-scrollbar {
+    display: none !important;
+    overflow: hidden !important;
+}
