@@ -24,7 +24,7 @@ export class ManualComponent implements OnInit {
   ngOnInit() {
     this.manualForm = this.fb.group({
       code: ['', [Validators.required]],
-      phone: [345345839],
+      phone: [987456445],
     });
   }
 
