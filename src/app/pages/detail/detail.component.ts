@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { HomeService } from 'src/app/services/home-service';
 
 @Component({
   selector: 'app-detail',
@@ -8,17 +9,14 @@ import { NavController } from '@ionic/angular';
 })
 export class DetailComponent implements OnInit {
 
-  items: any[] = [
-    { item_name: 'P/663553/DY/2020+10/2020' },
-    { item_name: 'P/663553/DY/2020+10/2020' },
-    { item_name: 'P/663553/DY/2020+10/2020' },
-    { item_name: 'P/663553/DY/2020+10/2020' },
-    { item_name: 'P/663553/DY/2020+10/2020' },
-    { item_name: 'P/663553/DY/2020+10/2020' },
-    { item_name: 'P/663553/DY/2020+10/2020' },
-  ]
+  pickUpObject: any;
 
-  constructor(private navctrl: NavController) { }
+  constructor(
+    private navctrl: NavController,
+    private homeService: HomeService
+  ) { 
+    this.pickUpObject = this.homeService.pickUpObject;
+  }
 
   ngOnInit() { }
 

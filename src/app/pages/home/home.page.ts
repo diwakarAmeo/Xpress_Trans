@@ -84,13 +84,23 @@ export class HomePage implements OnInit {
 
   scanPickUpCode(data: any) {
     this.homeService.postQrCode(data).then((res: any) => {
-      debugger;
+      if (res['ERROR'] == 'ERROR') {
+       this.helperService.errorMessage(res['ERRORMSG']);
+      } else {
+        this.homeService.pickUpObject = res;
+        this.navctrl.navigateForward(['/detail']);       
+      }
     }, (err: any) => {
       this.helperService.errorMessage(err);
     })
   }
 
   manualEntry() {
+    let req = {
+      phone: this.phonenumber.value,
+      code: ''
+    }
+    localStorage.setItem('item', JSON.stringify(req));
     this.navctrl.navigateForward(['/manual']);
   }
 
