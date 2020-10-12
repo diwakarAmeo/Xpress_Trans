@@ -21,6 +21,11 @@ ion-content {
 
     .data_item {
         margin: 1.5rem 0;
+        height: 400px;
+        overflow-y: scroll;
+        .list{
+            opacity: .5;
+        }
     }
 
     .reciever_name {

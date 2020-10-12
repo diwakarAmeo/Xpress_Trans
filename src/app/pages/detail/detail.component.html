@@ -11,15 +11,15 @@
         <!-- <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="primary" (click)="backbtn()">
         </ion-icon> -->
         <ion-label color="dark">
-          <h2 style="font-size: 18px;"><b>CZ0651,Roztylska 2321/19</b></h2>
-          <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p>
+          <h2 style="font-size: 18px;"><b>{{pickUpObject.senderName}}</b></h2>
+          <!-- <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p> -->
         </ion-label>
       </ion-item>
     </div>
 
     <div class="data_item">
-      <ion-item *ngFor="let item of items" lines="none">
-        <ion-label color="dark">{{item.item_name}}</ion-label>
+      <ion-item *ngFor="let item of listItem" lines="none" class="list">
+        <ion-label color="dark">{{item.packPosition}}</ion-label>
         <ion-icon color="success" name="checkmark-outline"></ion-icon>
         <!-- <ion-input type="number" value="item.item_name" placeholder="2662467" (keyup)="getTotal()"></ion-input> -->
       </ion-item>
@@ -30,7 +30,7 @@
         <ion-label color="primary">
           <p style="font-size:17px;"><b>Celkem dodáno</b></p>
         </ion-label>
-        <ion-text color="medium"><b>21/30</b></ion-text>
+        <ion-text color="medium"><b>0/{{barcodeData.length}}</b></ion-text>
       </ion-item>
     </div>
 
