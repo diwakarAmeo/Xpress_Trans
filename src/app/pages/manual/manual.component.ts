@@ -21,12 +21,13 @@ export class ManualComponent implements OnInit {
   ngOnInit() {
     this.manualForm = this.fb.group({
       code: ['', [Validators.required]],
+      phone: [345345839, [Validators.required]],
     });
   }
 
   onSubmit(): void {
-    alert(this.manualForm.value.code);
-    this.homeService.requestCode(this.manualForm.value.code).then((res) => {
+    console.log(this.manualForm.value);
+    this.homeService.requestCode(this.manualForm.value).then((res) => {
       console.log(res)
     }).catch((err) => {
       console.log(err);
