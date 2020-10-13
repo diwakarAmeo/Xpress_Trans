@@ -1,9 +1,14 @@
 ion-content{
     --background:#fff;
+    //  --background: linear-gradient(45deg, #ffe9d7, #dfe5ff);
     ion-button.close-btn{
       ion-icon {
           filter: drop-shadow(7px 7px 15px rgba(0, 0, 0, 0.1));
-      }
+      } 
+    }
+    .content {
+         border-radius: 30px;
+        //  background: #fff5ed;
     }
    
 }
