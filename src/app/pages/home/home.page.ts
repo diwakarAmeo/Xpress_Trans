@@ -29,6 +29,10 @@ export class HomePage implements OnInit {
     this.registerForm = this.fb.group({
       phonenumber: ['', Validators.compose([Validators.required, Validators.maxLength(9)])],
     });
+    let item = JSON.parse(localStorage.getItem('item'));
+    if (item) {
+      this.registerForm.patchValue({ phonenumber: item.phone });
+    }
   }
 
   get phonenumber() {
@@ -85,10 +89,10 @@ export class HomePage implements OnInit {
   scanPickUpCode(data: any) {
     this.homeService.postQrCode(data).then((res: any) => {
       if (res['ERROR'] == 'ERROR') {
-       this.helperService.errorMessage(res['ERRORMSG']);
+        this.helperService.errorMessage(res['ERRORMSG']);
       } else {
         this.homeService.pickUpObject = res;
-        this.navctrl.navigateForward(['/detail']);       
+        this.navctrl.navigateForward(['/detail']);
       }
     }, (err: any) => {
       this.helperService.errorMessage(err);

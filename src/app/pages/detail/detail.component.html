@@ -18,7 +18,7 @@
     </div>
 
     <div class="data_item">
-      <ion-item *ngFor="let item of listItem; let od = odd" lines="none" ngClass="{{ od ? 'list': ''}}">
+      <ion-item *ngFor="let item of barcodeData" lines="none" [ngClass]="item.checked ? '': 'list'">
         <ion-label color="dark">{{item.packPosition}}</ion-label>
         <ion-icon color="success" name="checkmark-outline"></ion-icon>
         <!-- <ion-input type="number" value="item.item_name" placeholder="2662467" (keyup)="getTotal()"></ion-input> -->
@@ -30,7 +30,7 @@
         <ion-label color="primary">
           <p style="font-size:17px;"><b>Celkem dodáno</b></p>
         </ion-label>
-        <ion-text color="medium"><b>0/{{barcodeData.length}}</b></ion-text>
+        <ion-text color="medium"><b>{{scannedCount}} / {{barcodeData.length}}</b></ion-text>
       </ion-item>
     </div>
 
@@ -39,10 +39,10 @@
       </ion-textarea>
     </ion-item>
     <div class="btns ion-text-center ion-margin-vertical">
-      <ion-button class="btn" expand="block" color="primary" (click)="submit()">SCAN BARCODES
+      <ion-button class="btn" expand="block" color="primary" (click)="scanBarcode()">SKENOVAT BALÍKY
         <ion-icon slot="end" name="barcode-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
-      <ion-button class="btn ion-margin-top" expand="block" color="medium" (click)="cancel()">CONFIRM (send JSON)
+      <ion-button class="btn ion-margin-top" expand="block" color="medium" (click)="submit()">POTVRDIT VYZVEDNUTÍ
         <ion-icon slot="end" name="checkmark-circle-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
       <ion-button class="cancel-btn ion-margin-vertical" expand="block" color="dark" (click)="cancelAction()">
