@@ -46,7 +46,8 @@ export class ManualComponent implements OnInit {
  async openErrorMsg() {
       const modal = await this.modalController.create({
         component: ErrorModalComponent,
-        componentProps: { data: this.errorData }
+        componentProps: { data: this.errorData },
+        cssClass: 'modal_content'
         });
 
         await modal.present();
