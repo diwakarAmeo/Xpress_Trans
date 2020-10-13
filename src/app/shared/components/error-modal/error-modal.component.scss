@@ -1,3 +1,9 @@
 ion-content{
     --background:#fff;
+    ion-button.close-btn{
+      ion-icon {
+          filter: drop-shadow(7px 7px 15px rgba(0, 0, 0, 0.1));
+      }
+    }
+   
 }

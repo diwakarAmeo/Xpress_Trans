@@ -47,7 +47,8 @@ export class ManualComponent implements OnInit {
       const modal = await this.modalController.create({
         component: ErrorModalComponent,
         componentProps: { data: this.errorData },
-        cssClass: 'modal_content'
+        cssClass: 'modal_content',
+        showBackdrop: false
         });
 
         await modal.present();
