@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ErrorModalComponent } from './components/error-modal/error-modal.component';
+import { CustomLoaderComponent } from './components/custom-loader/custom-loader.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { ErrorModalComponent } from './components/error-modal/error-modal.compon
     ReactiveFormsModule,
 
   ],
-  declarations: [ErrorModalComponent],
+  exports: [CustomLoaderComponent],
+  declarations: [ErrorModalComponent,CustomLoaderComponent],
   entryComponents: [ErrorModalComponent]
 })
 export class SharedModule { }

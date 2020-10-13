@@ -14,11 +14,12 @@ import { HelperService } from './services/helper-service';
 import { BarcodeService } from './services/barcode-service';
 import { BaseService } from './services/base-service';
 import { HomeService } from './services/home-service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, SharedModule],
   providers: [
     StatusBar,
     SplashScreen,
