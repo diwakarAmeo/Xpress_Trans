@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
     private fb: FormBuilder,
     private navctrl: NavController,
     private homeService: HomeService,
-    private modalctrl: ModalController,
+    private modalController: ModalController,
     private helperService: HelperService,
     private barcodeService: BarcodeService,
   ) { }
@@ -84,12 +84,18 @@ export class HomePage implements OnInit {
       console.log(err);
       this.helperService.showAlert(err.message);
     })
+    this.scanPickUpCode(); //ADDITIONAL
   }
 
-  scanPickUpCode(data: any) {
-    this.homeService.postQrCode(data).then((res: any) => {
+  scanPickUpCode(data?: any) {
+    let req = {
+      phone: "348684939",
+      code: "SVP-JKA1555==-COS0651"  //ADITINAL
+    }
+    this.homeService.postQrCode(req).then((res: any) => {
       if (res['ERROR'] == 'ERROR') {
-        this.helperService.errorMessage(res['ERRORMSG']);
+        this.openErrorMsg(res); //ADTIONAL
+        // this.helperService.errorMessage(res['ERRORMSG']);
       } else {
         this.homeService.pickUpObject = res;
         this.navctrl.navigateForward(['/detail']);
@@ -108,10 +114,13 @@ export class HomePage implements OnInit {
     this.navctrl.navigateForward(['/manual']);
   }
 
-  async presentModal() {
-    const modal = await this.modalctrl.create({
+  async openErrorMsg(res?: any) {
+    const modal = await this.modalController.create({
       component: ErrorModalComponent,
-      componentProps: { value: 123 }
+      componentProps: { data: res},
+      cssClass: 'modal_content',
+      showBackdrop: false,
+      mode:'ios'
     });
 
     await modal.present();

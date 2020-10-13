@@ -48,7 +48,8 @@ export class ManualComponent implements OnInit {
         component: ErrorModalComponent,
         componentProps: { data: this.errorData },
         cssClass: 'modal_content',
-        showBackdrop: false
+        showBackdrop: false,
+        mode:'ios'
         });
 
         await modal.present();

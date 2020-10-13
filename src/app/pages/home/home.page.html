@@ -15,15 +15,14 @@
         <form id="zadatTelefonnSlo-form1" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <ion-item color="transparent">
             <ion-label position="floating">Vaše telefonní číslo</ion-label>
-            <ion-input type="number" maxlength="9" pattern="\d{9}" inputmode="numeric" placeholder="123456789" formControlName="phonenumber" required>
+            <ion-input type="number" maxlength="9" pattern="\d{9}" inputmode="numeric" placeholder="123456789"
+              formControlName="phonenumber" required>
             </ion-input>
           </ion-item>
-          <div class="invalid-feedback"
-            *ngIf="(phonenumber.touched) && phonenumber.errors?.required">
+          <div class="invalid-feedback" *ngIf="(phonenumber.touched) && phonenumber.errors?.required">
             Phonenumber is required *
           </div>
-          <div class="invalid-feedback"
-            *ngIf="(phonenumber.dirty) && phonenumber.invalid">
+          <div class="invalid-feedback" *ngIf="(phonenumber.dirty) && phonenumber.invalid">
             Minimum 9 digits required *
           </div>
         </form>
@@ -54,14 +53,12 @@
     </ion-row>
   </div>
 
+    <ion-item class="footer" color="transparent" lines="none">
+      <ion-label color="medium">v1.0.0</ion-label>
+    </ion-item>
+
 </ion-content>
-<ion-footer class="ion-no-border">
-  <ion-item class="ion-text-center" color="transparent" lines="none">
-    <ion-label color="medium">v1.0.0</ion-label>
-  </ion-item>
-</ion-footer>
 
 <ng-container>
-<div class="bg"></div>
+  <div class="bg"></div>
 </ng-container>
-

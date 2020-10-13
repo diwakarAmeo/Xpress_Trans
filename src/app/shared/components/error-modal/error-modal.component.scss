@@ -1,14 +1,19 @@
 ion-content{
     --background:#fff;
-    //  --background: linear-gradient(45deg, #ffe9d7, #dfe5ff);
+    overflow: hidden !important;
     ion-button.close-btn{
-      ion-icon {
-          filter: drop-shadow(7px 7px 15px rgba(0, 0, 0, 0.1));
-      } 
+        --box-shadow:10px 10px 25px rgba(0, 0, 0, 0.2);
     }
     .content {
          border-radius: 30px;
-        //  background: #fff5ed;
     }
-   
+    .footer {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%)
+    } 
 }

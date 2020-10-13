@@ -18,7 +18,7 @@
     </div>
 
     <div class="data_item">
-      <ion-item *ngFor="let item of barcodeData" lines="none" [ngClass]="item.checked ? '': 'list'">
+      <ion-item *ngFor="let item of barcodeData" lines="none" [ngClass]="item.checked ? 'notlist': 'list'">
         <ion-label color="dark">{{item.packPosition}}</ion-label>
         <ion-icon color="success" name="checkmark-outline"></ion-icon>
         <!-- <ion-input type="number" value="item.item_name" placeholder="2662467" (keyup)="getTotal()"></ion-input> -->

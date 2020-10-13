@@ -19,7 +19,7 @@ ion-content {
     }
 
     ion-button.cancel-btn {
-        --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
+        --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2) !important;
         height: 35px;
     }
 
@@ -27,9 +27,12 @@ ion-content {
         margin: 1.5rem 0;
         height: 400px;
         overflow-y: scroll;
-
+        .notlist{
+              opacity: 1;
+        }
         .list {
-            opacity: .3;
+            border: 2px solid #cfcaca;
+            opacity: .4;
         }
     }
 
