@@ -29,34 +29,39 @@ export class ManualComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if(this.manualForm.valid){
-    console.log(this.manualForm.value);
-    this.homeService.requestCode(this.manualForm.value).then((res) => {
-    const response = res;
-    this.errorData = response;
-      if (this.errorData.ERROR == 'ERROR') {
-        this.openErrorMsg();
-      }
-    }).catch((err) => {
-      console.log(err);
-    })
+    if (this.manualForm.valid) {
+      console.log(this.manualForm.value);
+      this.homeService.requestCode(this.manualForm.value).then((res) => {
+        const response = res;
+        this.errorData = response;
+        if (this.errorData.ERROR == 'ERROR') {
+          this.openErrorMsg();
+        }
+      }).catch((err) => {
+        console.log(err);
+      })
+    }
+    this.resetForm();
   }
+
+  resetForm() {
+    this.manualForm.reset();
   }
 
- async openErrorMsg() {
-      const modal = await this.modalController.create({
-        component: ErrorModalComponent,
-        componentProps: { data: this.errorData },
-        cssClass: 'modal_content',
-        showBackdrop: false,
-        mode:'ios'
-        });
+  async openErrorMsg() {
+    const modal = await this.modalController.create({
+      component: ErrorModalComponent,
+      componentProps: { data: this.errorData },
+      cssClass: 'modal_content',
+      showBackdrop: false,
+      mode: 'ios'
+    });
 
-        await modal.present();
+    await modal.present();
 
-        const data = await modal.onDidDismiss();
-        console.log(data)
-      }
+    const data = await modal.onDidDismiss();
+    console.log(data)
+  }
 
   cancelAction(): void {
     this.navctrl.navigateBack(['/home']);

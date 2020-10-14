@@ -55,7 +55,7 @@ export class DetailComponent implements OnInit {
   updateBarcodes(item) {
     this.barcodeData.filter(x => {
       x.packPosition == item ? x.checked = true : x
-    })
+    });
     this.scannedCount = this.barcodeData.filter(x => x.checked).length;
   }
 

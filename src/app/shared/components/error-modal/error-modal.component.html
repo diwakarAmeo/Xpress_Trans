@@ -8,20 +8,22 @@
           <ion-icon name="close"></ion-icon>
         </ion-button>
       </ion-col>
-      <!-- <ion-col>
+      <ion-col *ngIf="(data.receiverID || data.receiverName)">
         <img src="assets/imgs/brand_logo_remo.png" class="brand_logo">
-      </ion-col> -->
+      </ion-col>
     </ion-row>
 
-
-    <br />
-
     <div class="ion-text-center ion-padding content">
-      <h2 class="ion-text-center" style="color: red;">{{data.ERROR}} </h2>
+      <div *ngIf="!(data.receiverID || data.receiverName)">
+        <h2 class="ion-text-center" style="color: red;">{{data.ERROR}} </h2>
+        <p>{{data.ERRORMSG}}</p>
+      </div>
 
-      <p>{{data.ERRORMSG}}</p>
+      <div *ngIf="(data.receiverID || data.receiverName)">
+        <h1>{{data.receiverName}}</h1>
+        <p>{{data.receiverID}}</p>
+      </div>
     </div>
-
 
   </div>
 
@@ -31,7 +33,6 @@
 </ion-content>
 
 <ng-container>
-  <!-- <div class="error-bg"></div> -->
   <div>
     <svg viewBox="0 0 1440 320">
       <path fill="#f1a752" fill-opacity="1"
