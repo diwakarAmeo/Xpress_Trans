@@ -19,10 +19,10 @@
               formControlName="phonenumber" required>
             </ion-input>
           </ion-item>
-          <div class="invalid-feedback" *ngIf="(phonenumber.touched) && phonenumber.errors?.required">
+          <div class="invalid-feedback" *ngIf="(phonenumber.touched || phonenumber.dirty) && phonenumber.errors?.required">
             Phonenumber is required *
           </div>
-          <div class="invalid-feedback" *ngIf="(phonenumber.dirty) && phonenumber.invalid">
+          <div class="invalid-feedback" *ngIf="!(phonenumber.errors?.required) && (phonenumber.dirty || phonenumber.invalid)">
             Minimum 9 digits required *
           </div>
         </form>
