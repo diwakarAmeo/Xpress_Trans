@@ -24,16 +24,19 @@ export class ManualComponent implements OnInit {
   ngOnInit() {
     this.manualForm = this.fb.group({
       code: ['', [Validators.required]],
-      phone: [987456445],
+      phone: [''],
     });
+    let item = JSON.parse(localStorage.getItem('item'));
+    if (item) {
+      this.manualForm.patchValue({ phone: item.phone });
+    }
   }
 
-  onSubmit(): void {
+  onSubmit() {
     if (this.manualForm.valid) {
       console.log(this.manualForm.value);
-      this.homeService.requestCode(this.manualForm.value).then((res) => {
-        const response = res;
-        this.errorData = response;
+      this.homeService.requestCode(this.manualForm.value).then((res: any) => {
+        this.errorData = res;
         if (this.errorData.ERROR == 'ERROR') {
           this.openErrorMsg();
         }
@@ -41,7 +44,6 @@ export class ManualComponent implements OnInit {
         console.log(err);
       })
     }
-    this.resetForm();
   }
 
   resetForm() {
@@ -59,8 +61,9 @@ export class ManualComponent implements OnInit {
 
     await modal.present();
 
-    const data = await modal.onDidDismiss();
-    console.log(data)
+    modal.onDidDismiss().then((res) => {
+      this.cancelAction();
+    });
   }
 
   cancelAction(): void {
