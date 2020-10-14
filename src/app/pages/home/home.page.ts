@@ -84,17 +84,16 @@ export class HomePage implements OnInit {
       console.log(err);
       this.helperService.showAlert(err.message);
     })
-    this.scanPickUpCode(); //ADDITIONAL
   }
 
   scanPickUpCode(data?: any) {
     let req = {
-      phone: "348684939",
-      code: "SVP-JKA1555==-COS0651"  //ADITINAL
+      phone: data.phone,
+      code: data.code
     }
     this.homeService.postQrCode(req).then((res: any) => {
       if (res['ERROR'] == 'ERROR') {
-        this.openErrorMsg(res); //ADTIONAL
+        this.openErrorMsg(res);
         // this.helperService.errorMessage(res['ERRORMSG']);
       } else {
         this.homeService.pickUpObject = res;

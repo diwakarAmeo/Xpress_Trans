@@ -52,15 +52,26 @@ export class DetailComponent implements OnInit {
     })
   }
 
-  updateBarcodes(item) {
-    this.barcodeData.filter(x => {
-      x.packPosition == item ? x.checked = true : x
+  updateBarcodes(data) {
+    this.barcodeData.filter(item => {
+      if (item.packPosition == data) {
+        let date = new Date().getTime();
+        item.checked = true;
+        item['PickedUp-date'] = date;
+        item['PickedUp-time'] = date;
+      } else {
+        return item;
+      }
     });
     this.scannedCount = this.barcodeData.filter(x => x.checked).length;
   }
 
   submit() {
-
+    this.barcodeData.forEach((item) => { delete item.checked });
+    let item = JSON.parse(localStorage.getItem('item'));
+    if (item) {
+      
+    }
   }
 
   cancelAction(): void {

@@ -27,4 +27,9 @@ export class HomeService {
         return this.baseService.get(url);
     }
 
+    postAllBaecodeWithQr(data: any) {
+        const url = `XPT-MobDistribuceSVOZ.php?M=${data.phonenumber}|${data.code}`;
+        return this.baseService.post(url, data);
+    }
+
 }
