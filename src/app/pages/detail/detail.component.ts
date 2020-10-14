@@ -70,8 +70,21 @@ export class DetailComponent implements OnInit {
     this.barcodeData.forEach((item) => { delete item.checked });
     let item = JSON.parse(localStorage.getItem('item'));
     if (item) {
-      
+      let req = {
+        phone: item.phone,
+        code: item.code,
+        response: JSON.stringify(this.barcodeData)
+      }
+      this.postAllBarcode(req);
     }
+  }
+
+  postAllBarcode(data: any) {
+    this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
+      debugger;
+    }, (err: any) => {
+      debugger;
+    });
   }
 
   cancelAction(): void {
