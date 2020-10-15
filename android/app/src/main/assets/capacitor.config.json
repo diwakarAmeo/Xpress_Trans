@@ -4,10 +4,22 @@
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
+  "windowsAndroidStudioPath": "D:/Program Files/Android/Android Studio/bin/studio64.exe",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
     }
   },
-  "cordova": {}
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "0",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "none",
+      "SplashScreenDelay": "0"
+    }
+  }
 }
