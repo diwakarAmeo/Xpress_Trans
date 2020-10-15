@@ -19,11 +19,13 @@
               formControlName="phonenumber" required>
             </ion-input>
           </ion-item>
-          <div class="invalid-feedback" *ngIf="(phonenumber.touched || phonenumber.dirty) && phonenumber.errors?.required">
+          <div class="invalid-feedback"
+            *ngIf="(phonenumber.touched || phonenumber.dirty) && phonenumber.errors?.required">
             Phonenumber is required *
           </div>
-          <div class="invalid-feedback" *ngIf="!(phonenumber.errors?.required) && phonenumber.touched && phonenumber.invalid">
-            Minimum 9 digits required *
+          <div class="invalid-feedback"
+            *ngIf="!(phonenumber.errors?.required) && ((phonenumber.touched || phonenumber.dirty) && phonenumber.invalid)">
+            9 digits are required *
           </div>
         </form>
       </ion-col>
@@ -53,9 +55,9 @@
     </ion-row>
   </div>
 
-    <ion-item class="footer" color="transparent" lines="none">
-      <ion-label color="medium">v1.0.0</ion-label>
-    </ion-item>
+  <ion-item class="footer" color="transparent" lines="none">
+    <ion-label color="medium">v1.0.0</ion-label>
+  </ion-item>
 
 </ion-content>
 

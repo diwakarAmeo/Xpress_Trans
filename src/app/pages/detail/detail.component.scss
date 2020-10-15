@@ -13,30 +13,27 @@ ion-content {
         }
     }
 
-    ion-button:not(.cancel-btn) {
+    ion-button {
         --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
         height: 50px;
-    }
-
-    ion-button.cancel-btn {
-        --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2) !important;
-        height: 35px;
     }
 
     .data_item {
         margin: 1.5rem 0;
         height: 400px;
         overflow-y: scroll;
-        .notlist{
-              opacity: 1;
+
+        .notlist {
+            opacity: 1;
         }
+
         .list {
             border: 2px solid #cfcaca;
             opacity: .4;
         }
     }
 
-    .reciever_name {
+    ion-item {
         border-radius: 4px;
         box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
     }

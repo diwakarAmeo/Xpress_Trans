@@ -32,14 +32,17 @@ export class ManualComponent implements OnInit {
     }
   }
 
+  get code() {
+    return this.manualForm.get('code');
+  }
+
+
   onSubmit() {
     if (this.manualForm.valid) {
       console.log(this.manualForm.value);
       this.homeService.requestCode(this.manualForm.value).then((res: any) => {
         this.errorData = res;
-        if (this.errorData.ERROR == 'ERROR') {
-          this.openErrorMsg();
-        }
+        this.openErrorMsg();
       }).catch((err) => {
         console.log(err);
       })

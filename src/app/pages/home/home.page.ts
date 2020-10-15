@@ -116,10 +116,10 @@ export class HomePage implements OnInit {
   async openErrorMsg(res?: any) {
     const modal = await this.modalController.create({
       component: ErrorModalComponent,
-      componentProps: { data: res},
+      componentProps: { data: res },
       cssClass: 'modal_content',
       showBackdrop: false,
-      mode:'ios'
+      mode: 'ios'
     });
 
     await modal.present();

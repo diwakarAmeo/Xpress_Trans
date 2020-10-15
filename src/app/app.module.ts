@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -15,6 +15,7 @@ import { BarcodeService } from './services/barcode-service';
 import { BaseService } from './services/base-service';
 import { HomeService } from './services/home-service';
 import { SharedModule } from './shared/shared.module';
+import { LoadingInterceptor } from './services/loading-service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import { SharedModule } from './shared/shared.module';
     HelperService,
     BarcodeService,
     BarcodeScanner,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

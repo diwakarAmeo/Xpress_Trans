@@ -15,8 +15,8 @@ export class ErrorModalComponent implements OnInit {
   ngOnInit() {
     console.log(this.data)
   }
-  
-  dismiss(value = '') :void {
+
+  dismiss(value = ''): void {
     this.modalController.dismiss(value);
   }
 
