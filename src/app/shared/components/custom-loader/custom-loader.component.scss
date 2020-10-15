@@ -1,8 +1,14 @@
 .spinner {
     margin: 300px  auto 0;
-    width: 70px;
+    width: auto;
     text-align: center;
     height: 100%;
+}
+
+.spinner>p {
+    color: white;
+    margin: 10px auto;
+    font-size: 19px;
 }
 
 .spinner>div {
