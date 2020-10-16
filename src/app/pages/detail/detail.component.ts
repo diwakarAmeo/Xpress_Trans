@@ -85,11 +85,9 @@ export class DetailComponent implements OnInit {
 
   postAllBarcode(data: any) {
     this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
-      debugger;
       this.errorData = res;
       this.openErrorMsg();
     }, (err: any) => {
-      debugger;
     });
   }
 
