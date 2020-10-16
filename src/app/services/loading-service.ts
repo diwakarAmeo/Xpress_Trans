@@ -23,7 +23,7 @@ export class LoadingInterceptor implements HttpInterceptor {
             this.helperService.isLoading = true;
             setTimeout(()=>{
             this.helperService.isLoading = false;
-            },10000)
+            },10000);
         }
         return <any>next.handle(req).pipe(
             catchError((err) => {
@@ -38,7 +38,7 @@ export class LoadingInterceptor implements HttpInterceptor {
                     this.helperService.isLoading = true;
                 }
             })
-        )
+        );
     }
 
 }

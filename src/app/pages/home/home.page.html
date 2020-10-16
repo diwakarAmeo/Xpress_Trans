@@ -8,12 +8,15 @@
     <ion-row class="ion-margin-top">
       <ion-col class="ion-margin-top">
         <form id="zadatTelefonnSlo-form1" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="input ion-activatable ripple-parent">
           <ion-item color="transparent">
             <ion-label position="floating">Vaše telefonní číslo</ion-label>
             <ion-input type="number" maxlength="9" pattern="\d{9}" inputmode="numeric" placeholder="123456789"
               formControlName="phonenumber" required>
             </ion-input>
           </ion-item>
+          <ion-ripple-effect></ion-ripple-effect>
+          </div>
           <div class="invalid-feedback"
             *ngIf="(phonenumber.touched || phonenumber.dirty) && phonenumber.errors?.required">
             Phonenumber is required *
@@ -22,6 +25,7 @@
             *ngIf="!(phonenumber.errors?.required) && ((phonenumber.touched || phonenumber.dirty) && phonenumber.invalid)">
             9 digits are required *
           </div>
+
         </form>
       </ion-col>
     </ion-row>

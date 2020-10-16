@@ -8,11 +8,14 @@
     <ion-row class="ion-margin-top">
       <ion-col class="ion-margin-top">
         <form id="zadatTelefonnSlo-form1" [formGroup]="manualForm">
+          <div class="input ion-activatable ripple-parent">
           <ion-item color="transparent">
             <ion-label position="floating">Přepište řetezec vedle QR kódu</ion-label>
             <ion-input type="text" inputmode="text" formControlName="code" placeholder="P-6AA8520-31.07.2018-1-CCC1047"
               name="code" required></ion-input>
           </ion-item>
+          <ion-ripple-effect></ion-ripple-effect>
+          </div>
           <div class="invalid-feedback" *ngIf="(code.touched || code.dirty) && (code.errors?.required || code.invalid)">
             Code is required * 
           </div>

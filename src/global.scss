@@ -115,9 +115,9 @@ ion-content {
 
 .modal_content {
     position: relative !important;
-    top: 40% !important;
+    top: 30% !important;
     z-index: 999 !important;
-    height: 60% !important;
+    height: 70% !important;
     contain: none;
     background: none !important;
     --box-shadow: -10px -10px 25px rgba(0, 0, 0, 0.1);
@@ -125,4 +125,9 @@ ion-content {
 
 .shadow-1{
     box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
 }

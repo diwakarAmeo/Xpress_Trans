@@ -1,8 +1,8 @@
 {
   "name": "XpressTrans",
-  "version": "0.0.1",
+  "version": "v0.0.1",
   "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "homepage": "https://www.yourwebsite.com",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
