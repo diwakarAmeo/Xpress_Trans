@@ -3,7 +3,7 @@ import { ModalController, NavController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { HomeService } from 'src/app/services/home-service';
-import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error-modal.component';
+import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
 
 @Component({
   selector: 'app-manual',
@@ -12,7 +12,7 @@ import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error
 })
 export class ManualComponent implements OnInit {
   manualForm: FormGroup;
-  errorData: any = {};
+  result: any = {};
 
   constructor(
     private homeService: HomeService,
@@ -41,7 +41,7 @@ export class ManualComponent implements OnInit {
     if (this.manualForm.valid) {
       console.log(this.manualForm.value);
       this.homeService.requestCode(this.manualForm.value).then((res: any) => {
-        this.errorData = res;
+        this.result = res;
         this.openErrorMsg();
       }).catch((err) => {
         console.log(err);
@@ -55,8 +55,8 @@ export class ManualComponent implements OnInit {
 
   async openErrorMsg() {
     const modal = await this.modalController.create({
-      component: ErrorModalComponent,
-      componentProps: { data: this.errorData },
+      component: DispalyModalComponent,
+      componentProps: { data: this.result },
       cssClass: 'modal_content',
       showBackdrop: false,
       mode: 'ios'

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
 
-import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error-modal.component';
+import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
 
 import { HomeService } from 'src/app/services/home-service';
 import { HelperService } from 'src/app/services/helper-service';
@@ -115,7 +115,7 @@ export class HomePage implements OnInit {
 
   async openErrorMsg(res?: any) {
     const modal = await this.modalController.create({
-      component: ErrorModalComponent,
+      component: DispalyModalComponent,
       componentProps: { data: res },
       cssClass: 'modal_content',
       showBackdrop: false,
