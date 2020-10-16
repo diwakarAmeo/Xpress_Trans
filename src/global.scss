@@ -126,7 +126,9 @@ ion-content {
 .shadow-1{
     box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.1);
 }
-
+.input-ripple{
+    border-radius: 5px;
+}
 .ripple-parent {
     position: relative;
     overflow: hidden;
