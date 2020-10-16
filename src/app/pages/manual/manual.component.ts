@@ -45,7 +45,7 @@ export class ManualComponent implements OnInit {
         this.openErrorMsg();
       }).catch((err) => {
         console.log(err);
-      })
+      });
     }
   }
 

@@ -14,7 +14,7 @@
               name="code" required></ion-input>
           </ion-item>
           <div class="invalid-feedback" *ngIf="(code.touched || code.dirty) && (code.errors?.required || code.invalid)">
-            Code is required *
+            Code is required * 
           </div>
         </form>
       </ion-col>
@@ -32,10 +32,9 @@
         </ion-button>
       </ion-col>
     </ion-row>
-
-    <div class="ion-text-center ion-padding invalid-feedback" [hidden]=""></div>
-
+    <!-- <div class="ion-text-center ion-padding invalid-feedback" [hidden]=""></div> -->
   </div>
+  
 </ion-content>
 
 <ng-container>

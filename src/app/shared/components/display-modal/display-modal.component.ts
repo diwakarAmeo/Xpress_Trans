@@ -20,5 +20,4 @@ export class DispalyModalComponent implements OnInit {
     this.modalController.dismiss(value);
   }
 
-
 }

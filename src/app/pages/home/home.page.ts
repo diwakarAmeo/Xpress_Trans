@@ -101,7 +101,7 @@ export class HomePage implements OnInit {
       }
     }, (err: any) => {
       this.helperService.errorMessage(err);
-    })
+    });
   }
 
   manualEntry() {
@@ -125,7 +125,7 @@ export class HomePage implements OnInit {
     await modal.present();
 
     const data = await modal.onDidDismiss();
-    console.log(data)
+    console.log(data);
   }
 
 }  
