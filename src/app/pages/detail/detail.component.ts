@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { BarcodeService } from 'src/app/services/barcode-service';
 import { HelperService } from 'src/app/services/helper-service';
 
 import { HomeService } from 'src/app/services/home-service';
+import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error-modal.component';
 
 @Component({
   selector: 'app-detail',
@@ -15,12 +16,14 @@ export class DetailComponent implements OnInit {
   pickUpObject: any;
   barcodeData: any[] = [];
   scannedCount: number = 0;
+  errorData: any = {};
 
   constructor(
     private navctrl: NavController,
     private homeService: HomeService,
     private barcodeService: BarcodeService,
-    private helperService: HelperService
+    private helperService: HelperService,
+    private modalController: ModalController,
   ) {
     this.pickUpObject = this.homeService.pickUpObject;
     this.extractBarcode()
@@ -68,12 +71,13 @@ export class DetailComponent implements OnInit {
 
   submit() {
     this.barcodeData.forEach((item) => { delete item.checked });
+    this.pickUpObject['barcodedata'] = this.barcodeData;
     let item = JSON.parse(localStorage.getItem('item'));
     if (item) {
       let req = {
         phone: item.phone,
         code: item.code,
-        response: JSON.stringify(this.barcodeData)
+        response: JSON.stringify(this.pickUpObject)
       }
       this.postAllBarcode(req);
     }
@@ -82,8 +86,26 @@ export class DetailComponent implements OnInit {
   postAllBarcode(data: any) {
     this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
       debugger;
+      this.errorData = res;
+      this.openErrorMsg();
     }, (err: any) => {
       debugger;
+    });
+  }
+
+  async openErrorMsg() {
+    const modal = await this.modalController.create({
+      component: ErrorModalComponent,
+      componentProps: { data: this.errorData },
+      cssClass: 'modal_content',
+      showBackdrop: false,
+      mode: 'ios'
+    });
+
+    await modal.present();
+
+    modal.onDidDismiss().then((res) => {
+      this.cancelAction();
     });
   }
 
