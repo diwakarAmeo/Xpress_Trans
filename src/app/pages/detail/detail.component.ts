@@ -31,7 +31,6 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() { }
 
-
   extractBarcode() {
     this.pickUpObject['barcodedata'].forEach((x) => {
       let data = JSON.parse(x)

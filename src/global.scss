@@ -88,6 +88,7 @@ ion-content {
         width: 600px;
         height: 600px;
     }
+
     .error-bg {
         position: absolute;
         top: -200px;
@@ -118,17 +119,19 @@ ion-content {
     top: 30% !important;
     z-index: 999 !important;
     height: 70% !important;
-    contain: none;
+    contain: none !important;
     background: none !important;
     --box-shadow: -10px -10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.shadow-1{
+.shadow-1 {
     box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.1);
 }
-.input-ripple{
+
+.input-ripple {
     border-radius: 5px;
 }
+
 .ripple-parent {
     position: relative;
     overflow: hidden;
