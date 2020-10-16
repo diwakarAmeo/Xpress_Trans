@@ -16,7 +16,7 @@ export class DetailComponent implements OnInit {
   pickUpObject: any;
   barcodeData: any[] = [];
   scannedCount: number = 0;
-  errorData: any = {};
+  result: any = {};
 
   constructor(
     private navctrl: NavController,
@@ -85,7 +85,7 @@ export class DetailComponent implements OnInit {
 
   postAllBarcode(data: any) {
     this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
-      this.errorData = res;
+      this.result = res;
       this.openErrorMsg();
     }, (err: any) => {
     });
@@ -94,7 +94,7 @@ export class DetailComponent implements OnInit {
   async openErrorMsg() {
     const modal = await this.modalController.create({
       component: DispalyModalComponent,
-      componentProps: { data: this.errorData },
+      componentProps: { data: this.result },
       cssClass: 'modal_content',
       showBackdrop: false,
       mode: 'ios'
