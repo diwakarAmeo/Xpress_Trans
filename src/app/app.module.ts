@@ -16,6 +16,7 @@ import { BaseService } from './services/base-service';
 import { HomeService } from './services/home-service';
 import { SharedModule } from './shared/shared.module';
 import { LoadingInterceptor } from './services/loading-service';
+import { Network } from '@ionic-native/network/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { LoadingInterceptor } from './services/loading-service';
     HelperService,
     BarcodeService,
     BarcodeScanner,
+    Network,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
   ],

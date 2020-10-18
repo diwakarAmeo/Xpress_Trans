@@ -115,13 +115,13 @@ ion-content {
 }
 
 .modal_content {
-    position: relative !important;
-    top: 30% !important;
-    z-index: 999 !important;
-    height: 70% !important;
-    contain: none !important;
-    background: none !important;
-    --box-shadow: -10px -10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 30%;
+    z-index: 999;
+    height: 70%;
+    contain: none;
+    background: none;
+    --box-shadow: -3px -3px 7px rgba(0, 0, 0, 0.1);
 }
 
 .shadow-1 {

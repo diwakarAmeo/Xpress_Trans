@@ -55,7 +55,7 @@ export class HomePage implements OnInit {
       }
     }, (err: any) => {
       console.log(err);
-      this.helperService.showAlert(err.message);
+      this.helperService.showAlert(err);
     })
   }
 
@@ -82,7 +82,7 @@ export class HomePage implements OnInit {
       }
     }, (err: any) => {
       console.log(err);
-      this.helperService.showAlert(err.message);
+      this.helperService.showAlert(err);
     })
   }
 
