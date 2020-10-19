@@ -38,7 +38,7 @@ export class AppComponent {
       this.helperService.showNewtworkError();
     });
     if (!this.checkNetwork) {
-      addEventListener('offline', () => {
+      addEventListener('window:offline', () => {
         this.helperService.hideNetworkError();
       })
     }
