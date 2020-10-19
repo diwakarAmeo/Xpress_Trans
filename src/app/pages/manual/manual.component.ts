@@ -59,12 +59,13 @@ export class ManualComponent implements OnInit {
       componentProps: { data: this.result },
       cssClass: 'modal_content',
       showBackdrop: false,
-      mode: 'ios'
+      mode: 'ios',
     });
 
     await modal.present();
 
     modal.onDidDismiss().then((res) => {
+      console.log(res, 'on modal dismis');
       this.cancelAction();
     });
   }

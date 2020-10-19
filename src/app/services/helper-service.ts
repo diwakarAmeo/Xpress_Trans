@@ -8,7 +8,8 @@ export class HelperService {
 
     loading: any;
     isLoading:boolean = false;
-
+    networkAlert: any;
+    
     constructor(
         private toastController: ToastController,
         private alertController: AlertController,
@@ -41,6 +42,29 @@ export class HelperService {
             buttons: ['Close']
         });
         return await alertCtrl.present();
+    }
+
+    async showNewtworkError() {
+        this.networkAlert = await this.alertController.create({
+            cssClass: 'network',
+            header: 'Network Error',
+            message: 'Please check your Network Connection.',
+            buttons: ['OK']
+        });
+        await this.networkAlert.present();
+        this.networkAlert.onDidDismiss().then(data => {
+            const network = navigator.onLine;
+            if (!network) {
+                this.showNewtworkError();
+            }
+        })
+    }
+
+    async hideNetworkError() {
+        if (typeof this.networkAlert === 'object') {
+            await this.networkAlert.dismiss();
+            window.location.reload();
+        }
     }
 
 }

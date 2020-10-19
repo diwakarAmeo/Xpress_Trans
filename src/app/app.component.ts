@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HelperService } from './services/helper-service';
-
-import { Network } from '@ionic-native/network/ngx';
 
 @Component({
   selector: 'app-root',
@@ -13,17 +11,37 @@ import { Network } from '@ionic-native/network/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  disconnectSubscription: any;
-  connectSubscription: any;
+
+  public checkNetwork: boolean = navigator.onLine;
+
+  @HostListener("window:offline")
+  OnlineEvent(event: Event) {
+    alert(1);
+    this.helperService.hideNetworkError();
+  }
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public helperService: HelperService,
-    private network: Network,
   ) {
     this.initializeApp();
+    if (!this.checkNetwork) {
+      this.helperService.showNewtworkError();
+    }
+    console.log(this.checkNetwork)
+
+    addEventListener('window:online', (event) => {
+      console.log('online', event);
+      this.checkNetwork = false;
+      this.helperService.showNewtworkError();
+    });
+    if (!this.checkNetwork) {
+      addEventListener('offline', () => {
+        this.helperService.hideNetworkError();
+      })
+    }
   }
 
   initializeApp() {
@@ -34,4 +52,4 @@ export class AppComponent {
 
   }
 
- }
+}
