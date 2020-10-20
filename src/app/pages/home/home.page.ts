@@ -61,8 +61,13 @@ export class HomePage implements OnInit {
 
   scanRequestCode(data: any) {
     this.homeService.requestCode(data).then((res: any) => {
+      this.openErrorMsg(res);
     }, (err: any) => {
-      this.helperService.errorMessage(err);
+      if (typeof err == 'object') {
+        this.helperService.errorMessage(JSON.stringify(err));
+      } else {
+        this.helperService.errorMessage(err);
+      }
     })
   }
 

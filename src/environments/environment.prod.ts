@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseApiUrl: 'https://prototype.zetalab.app/api/',
+  baseApiUrl: 'http://xpt.e-apl.eu/',
 };
