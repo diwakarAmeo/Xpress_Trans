@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ErrorModalComponent } from './error-modal.component';
+import { DispalyModalComponent } from './display-modal.component';
 
-describe('ErrorModalComponent', () => {
-  let component: ErrorModalComponent;
-  let fixture: ComponentFixture<ErrorModalComponent>;
+describe('DispalyModalComponent', () => {
+  let component: DispalyModalComponent;
+  let fixture: ComponentFixture<DispalyModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorModalComponent ],
+      declarations: [ DispalyModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ErrorModalComponent);
+    fixture = TestBed.createComponent(DispalyModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -4,7 +4,7 @@ import { BarcodeService } from 'src/app/services/barcode-service';
 import { HelperService } from 'src/app/services/helper-service';
 
 import { HomeService } from 'src/app/services/home-service';
-import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error-modal.component';
+import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
 
 @Component({
   selector: 'app-detail',
@@ -16,7 +16,7 @@ export class DetailComponent implements OnInit {
   pickUpObject: any;
   barcodeData: any[] = [];
   scannedCount: number = 0;
-  errorData: any = {};
+  result: any = {};
 
   constructor(
     private navctrl: NavController,
@@ -30,7 +30,6 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit() { }
-
 
   extractBarcode() {
     this.pickUpObject['barcodedata'].forEach((x) => {
@@ -85,18 +84,16 @@ export class DetailComponent implements OnInit {
 
   postAllBarcode(data: any) {
     this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
-      debugger;
-      this.errorData = res;
+      this.result = res;
       this.openErrorMsg();
     }, (err: any) => {
-      debugger;
     });
   }
 
   async openErrorMsg() {
     const modal = await this.modalController.create({
-      component: ErrorModalComponent,
-      componentProps: { data: this.errorData },
+      component: DispalyModalComponent,
+      componentProps: { data: this.result },
       cssClass: 'modal_content',
       showBackdrop: false,
       mode: 'ios'

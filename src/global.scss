@@ -39,7 +39,6 @@
 
 ion-content {
     --background: linear-gradient(45deg, #ffe9d7, #dfe5ff);
-    // --background: linear-gradient(45deg, #ffe1c8, #dce2fa);
 
     .logo-container {
         text-align: center;
@@ -89,6 +88,7 @@ ion-content {
         width: 600px;
         height: 600px;
     }
+
     .error-bg {
         position: absolute;
         top: -200px;
@@ -115,15 +115,24 @@ ion-content {
 }
 
 .modal_content {
-    position: relative !important;
-    top: 40% !important;
-    z-index: 999 !important;
-    height: 60% !important;
+    position: relative;
+    top: 30%;
+    z-index: 999;
+    height: 70%;
     contain: none;
-    background: none !important;
-    --box-shadow: -10px -10px 25px rgba(0, 0, 0, 0.1);
+    background: none;
+    --box-shadow: -3px -3px 7px rgba(0, 0, 0, 0.1);
 }
 
-.shadow-1{
+.shadow-1 {
     box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.1);
+}
+
+.input-ripple {
+    border-radius: 5px;
+}
+
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
 }

@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" mode="merge">
 
+
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
             android:name="io.ionic.starter.MainActivity"
@@ -61,5 +62,4 @@
     <!-- Audio -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
