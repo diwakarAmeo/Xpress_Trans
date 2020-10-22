@@ -16,7 +16,6 @@ export class AppComponent {
 
   @HostListener("window:offline")
   OnlineEvent(event: Event) {
-    alert(1);
     this.helperService.hideNetworkError();
   }
 
