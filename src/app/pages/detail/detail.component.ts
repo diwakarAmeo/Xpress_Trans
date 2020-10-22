@@ -5,6 +5,7 @@ import { HelperService } from 'src/app/services/helper-service';
 
 import { HomeService } from 'src/app/services/home-service';
 import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
+import { ResponseModalComponent } from 'src/app/shared/components/response-modal/response-modal.component';
 
 @Component({
   selector: 'app-detail',
@@ -85,14 +86,20 @@ export class DetailComponent implements OnInit {
   postAllBarcode(data: any) {
     this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
       this.result = res;
-      this.openErrorMsg();
+      this.openErrorMsg(res);
     }, (err: any) => {
     });
   }
 
-  async openErrorMsg() {
+  async openErrorMsg(res?: any) {
+    let component;
+    if ((res.receiverID || res.receiverName)) {
+      component = ResponseModalComponent;
+    } else {
+      component = DispalyModalComponent;
+    }
     const modal = await this.modalController.create({
-      component: DispalyModalComponent,
+      component: component,
       componentProps: { data: this.result },
       cssClass: 'modal_content',
       showBackdrop: false,

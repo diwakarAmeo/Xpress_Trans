@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="content">
+    <br />
+    <ion-row>
+      <ion-col >
+        <img src="assets/imgs/brand_logo_remo.png" class="brand_logo">
+      </ion-col>
+    </ion-row>
+
+
+    <div class="ion-text-center ion-margin-vertical">
+      <ion-item class="ion-text-center reciever_name" lines="none">
+        <!-- <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="primary" (click)="backbtn()">
+        </ion-icon> -->
+        <ion-label color="dark">
+        pickUpObject.senderName
+          <!-- <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p> -->
+        </ion-label>
+      </ion-item>
+    </div>
+
+    <!-- <div class="data_item">
+      <ion-item *ngFor="let item of barcodeData" lines="none" [ngClass]="item.checked ? 'notlist': 'list'">
+        <ion-label color="dark">{{item.packPosition}}</ion-label>
+        <ion-icon color="success" name="checkmark-outline"></ion-icon>
+      </ion-item>
+    </div> -->
+
+    <div class="delivered">
+      <ion-item lines="none">
+        <ion-label color="primary">
+          <p style="font-size:17px;"><b>Celkem dodáno</b></p>
+        </ion-label>
+        <ion-text color="medium"><b>{{scannedCount}} / {{barcodeData.length}}</b></ion-text>
+      </ion-item>
+    </div>
+
+    <ion-item>
+      <ion-textarea rows="3" placeholder="Sem napište poznámku pro případ nesrovnalostí ..." name="notes" mode="ios">
+      </ion-textarea>
+    </ion-item>
+    <div class="btns ion-text-center ion-margin-vertical">
+      <ion-button class="btn" expand="block" color="primary" (click)="scanBarcode()">SKENOVAT BALÍKY
+        <ion-icon slot="end" name="barcode-outline" class="icon-scan-2"></ion-icon>
+      </ion-button>
+      <ion-button class="btn ion-margin-top" expand="block" color="medium" (click)="submit()"
+        [disabled]="scannedCount === 0">POTVRDIT VYZVEDNUTÍ
+        <ion-icon slot="end" name="checkmark-circle-outline" class="icon-scan-2"></ion-icon>
+      </ion-button>
+      <ion-button class="ion-margin-vertical" expand="block" color="dark" (click)="dismiss()">
+        ZRUŠIT
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

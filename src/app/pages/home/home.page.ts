@@ -7,6 +7,7 @@ import { DispalyModalComponent } from 'src/app/shared/components/display-modal/d
 import { HomeService } from 'src/app/services/home-service';
 import { HelperService } from 'src/app/services/helper-service';
 import { BarcodeService } from 'src/app/services/barcode-service';
+import { ResponseModalComponent } from 'src/app/shared/components/response-modal/response-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -39,27 +40,72 @@ export class HomePage implements OnInit {
     return this.registerForm.get('phonenumber');
   }
 
+  resp: any = [{
+    Delivereddate: "08.08.2020",
+    Delivereddevice: "MOBIL",
+    Deliverednote: "test",
+    Deliveredstatus: "doručeno",
+    Deliveredtime: "13:09",
+    Delivereduser: "123456789",
+    consNumBC: 2,
+    consPosition: "22401229"
+  },
+  {
+    Delivereddate: "08.08.2020",
+    Delivereddevice: "MOBIL",
+    Deliverednote: "test",
+    Deliveredstatus: "doručeno",
+    Deliveredtime: "13:09",
+    Delivereduser: "123456789",
+    consNumBC: 2,
+    consPosition: "22401229"
+  }, {
+    Delivereddate: "08.08.2020",
+    Delivereddevice: "MOBIL",
+    Deliverednote: "test",
+    Deliveredstatus: "doručeno",
+    Deliveredtime: "13:09",
+    Delivereduser: "123456789",
+    consNumBC: 2,
+    consPosition: "22401229"
+  },
+  {
+    Delivereddate: "08.08.2020",
+    Delivereddevice: "MOBIL",
+    Deliverednote: "test",
+    Deliveredstatus: "doručeno",
+    Deliveredtime: "13:09",
+    Delivereduser: "123456789",
+    consNumBC: 2,
+    consPosition: "22401229"
+  },
+  ]
+
+
+
   scan() {
-    this.barcodeService.scan('QR_CODE').then((res: any) => {
-      if (!res.cancelled) {
-        if (res.text) {
-          let req = {
-            phone: this.phonenumber.value,
-            code: res.text
-          }
-          localStorage.setItem('item', JSON.stringify(req));
-          this.scanRequestCode(req);
-        } else {
-          this.helperService.showAlert('Please try again');
-        }
-      }
-    }, (err: any) => {
-      console.log(err);
-      this.helperService.showAlert(err);
-    })
+    let data1 = JSON.parse(this.resp);
+    this.openErrorMsg(data1);
+    // this.barcodeService.scan('QR_CODE').then((res: any) => {
+    //   if (!res.cancelled) {
+    //     if (res.text) {
+    //       let req = {
+    //         phone: this.phonenumber.value,
+    //         code: res.text
+    //       }
+    //       localStorage.setItem('item', JSON.stringify(req));
+    //       this.scanRequestCode(req);
+    //     } else {
+    //       this.helperService.showAlert('Please try again');
+    //     }
+    //   }
+    // }, (err: any) => {
+    //   console.log(err);
+    //   this.helperService.showAlert(err);
+    // })
   }
 
-  scanRequestCode(data: any) {
+  scanRequestCode(data?: any) {
     this.homeService.requestCode(data).then((res: any) => {
       this.openErrorMsg(res);
     }, (err: any) => {
@@ -119,10 +165,16 @@ export class HomePage implements OnInit {
   }
 
   async openErrorMsg(res?: any) {
+    let component;
+    if ((res.receiverID || res.receiverName)) {
+      component = ResponseModalComponent;
+    } else {
+      component = DispalyModalComponent;
+    }
     const modal = await this.modalController.create({
-      component: DispalyModalComponent,
+      component: component,
       componentProps: { data: res },
-      cssClass: 'modal_content',
+      // cssClass: 'modal_content',
       showBackdrop: false,
       mode: 'ios'
     });

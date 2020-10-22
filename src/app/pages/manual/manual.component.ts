@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { HomeService } from 'src/app/services/home-service';
 import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
+import { ResponseModalComponent } from 'src/app/shared/components/response-modal/response-modal.component';
 
 @Component({
   selector: 'app-manual',
@@ -42,7 +43,8 @@ export class ManualComponent implements OnInit {
       console.log(this.manualForm.value);
       this.homeService.requestCode(this.manualForm.value).then((res: any) => {
         this.result = res;
-        this.openErrorMsg();
+        console.log(res)
+        this.openErrorMsg(res);
       }).catch((err) => {
         console.log(err);
       });
@@ -53,9 +55,15 @@ export class ManualComponent implements OnInit {
     this.manualForm.reset();
   }
 
-  async openErrorMsg() {
+  async openErrorMsg(res?: any) {
+    let component;
+    if ((res.receiverID || res.receiverName)) {
+      component = ResponseModalComponent;
+    } else {
+      component = DispalyModalComponent;
+    }
     const modal = await this.modalController.create({
-      component: DispalyModalComponent,
+      component: component,
       componentProps: { data: this.result },
       cssClass: 'modal_content',
       showBackdrop: false,

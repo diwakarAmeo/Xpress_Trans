@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { DispalyModalComponent } from './components/display-modal/display-modal.component';
 import { CustomLoaderComponent } from './components/custom-loader/custom-loader.component';
+import { ResponseModalComponent } from './components/response-modal/response-modal.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { CustomLoaderComponent } from './components/custom-loader/custom-loader.
 
   ],
   exports: [CustomLoaderComponent],
-  declarations: [DispalyModalComponent,CustomLoaderComponent],
-  entryComponents: [DispalyModalComponent]
+  declarations: [DispalyModalComponent,CustomLoaderComponent,ResponseModalComponent],
+  entryComponents: [DispalyModalComponent, ResponseModalComponent]
 })
 export class SharedModule { }

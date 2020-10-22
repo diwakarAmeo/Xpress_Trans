@@ -114,15 +114,15 @@ ion-content {
     overflow: hidden !important;
 }
 
-.modal_content {
-    position: relative;
-    top: 30%;
-    z-index: 999;
-    height: 70%;
-    contain: none;
-    background: none;
-    --box-shadow: -3px -3px 7px rgba(0, 0, 0, 0.1);
-}
+// .modal_content {
+//     position: relative;
+//     top: 30%;
+//     z-index: 999;
+//     height: 70%;
+//     contain: none;
+//     background: none;
+//     --box-shadow: -3px -3px 7px rgba(0, 0, 0, 0.1);
+// }
 
 .shadow-1 {
     box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.1);
