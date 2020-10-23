@@ -11,24 +11,24 @@ export class DisplayErrorPage implements OnInit {
 
   errorData: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private navCtrl: NavController) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private navCtrl: NavController) {
+
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.errorData = this.router.getCurrentNavigation().extras.state.data;
-        console.log(this.errorData);
-        localStorage.setItem('errordata', JSON.stringify(this.errorData));
-      }
-      if (localStorage.getItem('errordata')) {
-        this.errorData = JSON.parse(localStorage.getItem('errordata'));
+      } else {
+        this.navCtrl.navigateBack(["/home"]);
       }
     });
+
   }
 
-  ngOnInit() {
-   
-  }
+  ngOnInit() { }
 
-  cancelAction() :void {
+  cancelAction(): void {
     this.navCtrl.navigateBack(['/home']);
   }
 
