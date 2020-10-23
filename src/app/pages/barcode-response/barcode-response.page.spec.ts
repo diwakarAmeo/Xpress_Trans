@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { DisplayErrorPage } from './display-error.page';
+import { BarcodeResponsePage } from './barcode-response.page';
 
-describe('DisplayErrorPage', () => {
-  let component: DisplayErrorPage;
-  let fixture: ComponentFixture<DisplayErrorPage>;
+describe('BarcodeResponsePage', () => {
+  let component: BarcodeResponsePage;
+  let fixture: ComponentFixture<BarcodeResponsePage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DisplayErrorPage ],
+      declarations: [ BarcodeResponsePage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DisplayErrorPage);
+    fixture = TestBed.createComponent(BarcodeResponsePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

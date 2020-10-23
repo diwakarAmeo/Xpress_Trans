@@ -111,7 +111,7 @@ export class HomePage implements OnInit {
         // this.helperService.errorMessage(res['ERRORMSG']);
       } else {
         this.homeService.pickUpObject = res;
-        this.navctrl.navigateForward(['/detail']);
+        this.navctrl.navigateForward(['/barcode-response']);
       }
     }, (err: any) => {
       this.helperService.errorMessage(err);

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-display-error',
-  templateUrl: './display-error.page.html',
-  styleUrls: ['./display-error.page.scss'],
+  selector: 'app-error',
+  templateUrl: './error.page.html',
+  styleUrls: ['./error.page.scss'],
 })
-export class DisplayErrorPage implements OnInit {
+export class ErrorPage implements OnInit {
+
 
   errorData: any;
 

@@ -3,23 +3,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-display-response',
-  templateUrl: './display-response.page.html',
-  styleUrls: ['./display-response.page.scss'],
+  selector: 'app-response',
+  templateUrl: './response.page.html',
+  styleUrls: ['./response.page.scss'],
 })
-export class DisplayResponsePage implements OnInit {
+export class ResponsePage implements OnInit {
 
   responseData: any;
 
   constructor(private route: ActivatedRoute, private router: Router, private navCtrl: NavController) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.responseData = this.router.getCurrentNavigation().extras.state.data;
-        console.log(this.responseData);
-        localStorage.setItem('responseData', JSON.stringify(this.responseData));
-      }
-      if (localStorage.getItem('responseData')) {
-        this.responseData = JSON.parse(localStorage.getItem('responseData'));
+      } else {
+        this.navCtrl.navigateBack(["/home"]);
       }
     });
   }
@@ -30,5 +26,5 @@ export class DisplayResponsePage implements OnInit {
   cancelAction(): void {
     this.navCtrl.navigateBack(['/home']);
   }
-
+  
 }

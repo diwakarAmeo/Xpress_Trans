@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
 
-import { DetailComponent } from './detail.component';
+import { BarcodeResponsePage } from './barcode-response.page';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: DetailComponent,
+    component: BarcodeResponsePage
   }
 ];
 
@@ -18,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DetailComponent]
+  declarations: [BarcodeResponsePage]
 })
-export class DetailModule { }
+export class BarcodeResponsePageModule {}

@@ -7,8 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'detail', 
-    loadChildren: () => import('./pages/detail/detail.module').then(m => m.DetailModule)
+    path: 'barcode-response', 
+    loadChildren: () => import('./pages/barcode-response/barcode-response.module').then(m => m.BarcodeResponsePageModule)
   },
   {
     path: 'manual',
@@ -16,17 +16,19 @@ const routes: Routes = [
   },
   {
     path: 'error',
-    loadChildren: () => import('./pages/display-error/display-error.module').then(m => m.DisplayErrorPageModule)
+    loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorPageModule)
   },
   {
     path: 'response',
-    loadChildren: () => import('./pages/display-response/display-response.module').then(m => m.DisplayResponsePageModule)
+    loadChildren: () => import('./pages/response/response.module').then(m => m.ResponsePageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
+
+
 ];
 
 @NgModule({

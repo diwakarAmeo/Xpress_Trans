@@ -44,7 +44,7 @@ export class ManualComponent implements OnInit {
     if (this.manualForm.valid) {
       console.log(this.manualForm.value);
       this.homeService.requestCode(this.manualForm.value).then((res: any) => {
-        let navigationExtras: NavigationExtras = { state: { data: res } };
+      let navigationExtras: NavigationExtras = { state: { data: res } };
       if (res['ERROR'] == 'ERROR') {
         this.router.navigate(['/error'], navigationExtras);
       } else {

@@ -7,14 +7,7 @@
 
 
     <div class="ion-text-center ion-margin-vertical">
-      <ion-item class="ion-text-center reciever_name" lines="none">
-        <!-- <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="primary" (click)="backbtn()">
-        </ion-icon> -->
-        <ion-label color="dark">
-          {{pickUpObject.senderName}} 
-          <!-- <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p> -->
-        </ion-label>
-      </ion-item>
+          <h2>{{pickUpObject.senderName}}</h2>
     </div>
 
     <div class="data_item">
@@ -42,7 +35,8 @@
       <ion-button class="btn" expand="block" color="primary" (click)="scanBarcode()">SKENOVAT BALÍKY
         <ion-icon slot="end" name="barcode-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
-      <ion-button class="btn ion-margin-top" expand="block" color="medium" (click)="submit()" [disabled]="scannedCount === 0">POTVRDIT VYZVEDNUTÍ
+      <ion-button class="btn ion-margin-top" expand="block" color="medium" (click)="submit()"
+        [disabled]="scannedCount === 0">POTVRDIT VYZVEDNUTÍ
         <ion-icon slot="end" name="checkmark-circle-outline" class="icon-scan-2"></ion-icon>
       </ion-button>
       <ion-button class="ion-margin-vertical" expand="block" color="dark" (click)="cancelAction()">

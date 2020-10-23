@@ -4,17 +4,23 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DisplayResponsePageRoutingModule } from './display-response-routing.module';
+import { ErrorPage } from './error.page';
+import { Routes, RouterModule } from '@angular/router';
 
-import { DisplayResponsePage } from './display-response.page';
+const routes: Routes = [
+  {
+    path: '',
+    component: ErrorPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DisplayResponsePageRoutingModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [DisplayResponsePage]
+  declarations: [ErrorPage]
 })
-export class DisplayResponsePageModule {}
+export class ErrorPageModule {}
