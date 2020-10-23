@@ -8,6 +8,7 @@ import { HomeService } from 'src/app/services/home-service';
 import { HelperService } from 'src/app/services/helper-service';
 import { BarcodeService } from 'src/app/services/barcode-service';
 import { ResponseModalComponent } from 'src/app/shared/components/response-modal/response-modal.component';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,7 @@ export class HomePage implements OnInit {
     private modalController: ModalController,
     private helperService: HelperService,
     private barcodeService: BarcodeService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -62,7 +64,11 @@ export class HomePage implements OnInit {
 
   scanRequestCode(data?: any) {
     this.homeService.requestCode(data).then((res: any) => {
-      this.openErrorMsg(res);
+      // this.openErrorMsg(res);
+      if (res['ERROR'] == 'ERROR') {
+      let navigationExtras: NavigationExtras = { state: { data: res } };
+      this.router.navigate(['/error'], navigationExtras);
+      }
     }, (err: any) => {
       if (typeof err == 'object') {
         this.helperService.errorMessage(JSON.stringify(err));
@@ -128,8 +134,8 @@ export class HomePage implements OnInit {
     }
     const modal = await this.modalController.create({
       component: component,
-      componentProps: { data: res },
-      // cssClass: 'modal_content',
+      componentProps: { responsedata: res },
+      cssClass: 'modal_content',
       showBackdrop: false,
       mode: 'ios'
     });

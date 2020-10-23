@@ -1,0 +1,33 @@
+<ion-content>
+
+  <div class="ion-padding">
+    <br />
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <img src="assets/imgs/brand_logo_remo.png" class="brand_logo">
+      </ion-col>
+    </ion-row>
+
+    <div class="ion-text-center ion-padding content">
+      <div *ngIf="!(errorData.receiverID || errorData.receiverName)">
+        <h2 class="ion-text-center" style="color: red;">{{errorData.ERROR}} </h2>
+        <p>{{errorData.ERRORMSG}}</p>
+      </div>
+
+      <div *ngIf="(errorData.receiverID || errorData.receiverName)">
+        <h1>{{errorData.receiverName}}</h1>
+        <p>{{errorData.receiverID}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer ion-text-center">
+  <ion-item class="ion-text-center" color="transparent" lines="none">
+    <ion-label color="medium">{{errorData.ver}}</ion-label>
+  </ion-item>
+  <div class="ion-margin">
+  <ion-button class="ion-margin-vertical" expand="block" color="dark" (click)="cancelAction()">
+    ZRUŠIT
+  </ion-button>
+  </div>
+  </div>
+</ion-content>
