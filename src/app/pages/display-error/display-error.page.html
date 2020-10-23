@@ -11,23 +11,16 @@
     <div class="ion-text-center ion-padding-vertical content">
       <div>
         <h2 class="ion-text-center" style="color: red;">{{errorData.ERROR}} </h2>
-        <h3>{{errorData.ERRORMSG}}</h3>
+        <div class="error-msg ion-padding" innerHtml="{{errorData.ERRORMSG}}"></div>
       </div>
 
-      <div *ngIf="(errorData.receiverID || errorData.receiverName)">
-        <h1>{{errorData.receiverName}}</h1>
-        <p>{{errorData.receiverID}}</p>
-      </div>
     </div>
   </div>
-  <div class="footer ion-text-center">
-  <ion-item class="ion-text-center" color="transparent" lines="none">
-    <ion-label color="medium">{{errorData.ver}}</ion-label>
-  </ion-item>
-  <div class="ion-margin">
+
+  <div class="footer ion-text-center ion-margin">
   <ion-button class="ion-margin-vertical" expand="block" color="dark" (click)="cancelAction()">
     ZRUŠIT
   </ion-button>
-  </div>
+
   </div>
 </ion-content>
