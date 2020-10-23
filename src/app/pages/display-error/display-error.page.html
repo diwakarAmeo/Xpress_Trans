@@ -8,10 +8,10 @@
       </ion-col>
     </ion-row>
 
-    <div class="ion-text-center ion-padding content">
-      <div *ngIf="!(errorData.receiverID || errorData.receiverName)">
+    <div class="ion-text-center ion-padding-vertical content">
+      <div>
         <h2 class="ion-text-center" style="color: red;">{{errorData.ERROR}} </h2>
-        <p>{{errorData.ERRORMSG}}</p>
+        <h3>{{errorData.ERRORMSG}}</h3>
       </div>
 
       <div *ngIf="(errorData.receiverID || errorData.receiverName)">

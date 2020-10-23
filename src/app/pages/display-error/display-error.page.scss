@@ -1,5 +1,11 @@
 ion-content{
+    --background: #fff;
     ion-button{
         --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    .content{
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
     }
 }

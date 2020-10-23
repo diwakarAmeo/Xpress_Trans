@@ -1,0 +1,55 @@
+ion-content {
+     --background: #fff;
+    ion-item {
+        margin: 4px 0px;
+        border-radius: 4px;
+
+        ion-label {
+            white-space: normal;
+        }
+
+        ion-icon {
+            cursor: pointer;
+            filter: drop-shadow(4px 4px 9px rgba(0, 0, 0, 0.3));
+        }
+    }
+
+    ion-button {
+        --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
+        height: 50px;
+    }
+
+    .data_item {
+        margin: 1.5rem 0;
+        height: 400px;
+        overflow-y: scroll;
+
+        .notlist {
+            opacity: 1;
+        }
+
+        .list {
+            border: 2px solid #cfcaca;
+            opacity: .4;
+        }
+
+    }
+
+    ion-item {
+        border-radius: 4px;
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
+    }
+
+    .delivery_item {
+        opacity: 1;
+        color: white;
+        background: linear-gradient(45deg, #F59344, #92949C);
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon-scan-2 {
+        position: relative;
+        left: 15px;
+        font-size: 24px;
+    }
+}

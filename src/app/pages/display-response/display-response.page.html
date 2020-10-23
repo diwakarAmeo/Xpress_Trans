@@ -1,9 +1,51 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>display-response</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-<ion-content>
+  <div class="response-content">
+    <ion-row>
+      <ion-col>
+        <img src="assets/imgs/brand_logo_remo.png">
+      </ion-col>
+    </ion-row>
 
+
+    <div class="ion-text-center">
+     
+        <!-- <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="primary" (click)="backbtn()">
+        </ion-icon> -->
+      
+       <h1> 100 - A3 SPORT:OC Novy Smichov,CZ 15000,Praha 5,Plzenska 8 </h1>
+          <!-- <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p> -->
+      
+   
+    </div>
+
+    <!-- <div class="data_item">
+      <ion-item *ngFor="let item of responseData" lines="none">
+        <ion-label color="dark">{{item.packPosition}}</ion-label>
+        <ion-icon color="success" name="checkmark-outline"></ion-icon>
+      </ion-item>
+    </div> -->
+  <br />
+    <div class="delivered">
+      <ion-item lines="none" class="ion-text-center">
+        <ion-label color="dark">
+          <p style="font-size:17px;">Celkem dodáno : <span></span></p>
+        </ion-label>
+        <!-- <ion-text color="medium"><b></b></ion-text> -->
+      </ion-item>
+    </div>
+
+    <ion-item>
+      <ion-textarea rows="3" placeholder="poznámku pro případ nesrovnalostí ..." name="notes" mode="ios">
+      </ion-textarea>
+    </ion-item>
+    <div class="btns ion-text-center ion-margin-vertical">
+      <ion-button class="btn" expand="block" color="primary" (click)="confirmDelivery()">POTVRDIT DORUČENÍ
+      </ion-button>
+      <ion-button class="ion-margin-vertical" expand="block" color="dark" (click)="cancelAction()">
+        ZRUŠIT
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
+
