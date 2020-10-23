@@ -40,69 +40,24 @@ export class HomePage implements OnInit {
     return this.registerForm.get('phonenumber');
   }
 
-  resp: any = [{
-    Delivereddate: "08.08.2020",
-    Delivereddevice: "MOBIL",
-    Deliverednote: "test",
-    Deliveredstatus: "doručeno",
-    Deliveredtime: "13:09",
-    Delivereduser: "123456789",
-    consNumBC: 2,
-    consPosition: "22401229"
-  },
-  {
-    Delivereddate: "08.08.2020",
-    Delivereddevice: "MOBIL",
-    Deliverednote: "test",
-    Deliveredstatus: "doručeno",
-    Deliveredtime: "13:09",
-    Delivereduser: "123456789",
-    consNumBC: 2,
-    consPosition: "22401229"
-  }, {
-    Delivereddate: "08.08.2020",
-    Delivereddevice: "MOBIL",
-    Deliverednote: "test",
-    Deliveredstatus: "doručeno",
-    Deliveredtime: "13:09",
-    Delivereduser: "123456789",
-    consNumBC: 2,
-    consPosition: "22401229"
-  },
-  {
-    Delivereddate: "08.08.2020",
-    Delivereddevice: "MOBIL",
-    Deliverednote: "test",
-    Deliveredstatus: "doručeno",
-    Deliveredtime: "13:09",
-    Delivereduser: "123456789",
-    consNumBC: 2,
-    consPosition: "22401229"
-  },
-  ]
-
-
-
   scan() {
-    let data1 = JSON.parse(this.resp);
-    this.openErrorMsg(data1);
-    // this.barcodeService.scan('QR_CODE').then((res: any) => {
-    //   if (!res.cancelled) {
-    //     if (res.text) {
-    //       let req = {
-    //         phone: this.phonenumber.value,
-    //         code: res.text
-    //       }
-    //       localStorage.setItem('item', JSON.stringify(req));
-    //       this.scanRequestCode(req);
-    //     } else {
-    //       this.helperService.showAlert('Please try again');
-    //     }
-    //   }
-    // }, (err: any) => {
-    //   console.log(err);
-    //   this.helperService.showAlert(err);
-    // })
+    this.barcodeService.scan('QR_CODE').then((res: any) => {
+      if (!res.cancelled) {
+        if (res.text) {
+          let req = {
+            phone: this.phonenumber.value,
+            code: res.text
+          }
+          localStorage.setItem('item', JSON.stringify(req));
+          this.scanRequestCode(req);
+        } else {
+          this.helperService.showAlert('Please try again');
+        }
+      }
+    }, (err: any) => {
+      console.log(err);
+      this.helperService.showAlert(err);
+    })
   }
 
   scanRequestCode(data?: any) {
