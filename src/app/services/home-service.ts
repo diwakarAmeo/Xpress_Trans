@@ -23,12 +23,12 @@ export class HomeService {
     }
 
     postQrCode(data: any) {
-        const url = `XPT-MobDistribuceSVOZ.php?M=${data.phonenumber}|${data.code}`;
+        const url = `XPT-MobDistribuceSVOZ.php?M=${data.phone}|${data.code}`;
         return this.baseService.get(url);
     }
 
     postAllBaecodeWithQr(data: any) {
-        const url = `XPT-MobDistribuceSVOZ.php?M=${data.phonenumber}|${data.code}`;
+        const url = `XPT-MobDistribuceSVOZ.php?M=${data.phone}|${data.code}`;
         return this.baseService.post(url, data);
     }
 
