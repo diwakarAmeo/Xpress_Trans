@@ -15,6 +15,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/manual/manual.module').then(m => m.ManualModule)
   },
   {
+    path: 'error',
+    loadChildren: () => import('./pages/display-error/display-error.module').then(m => m.DisplayErrorPageModule)
+  },
+  {
+    path: 'response',
+    loadChildren: () => import('./pages/display-response/display-response.module').then(m => m.DisplayResponsePageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

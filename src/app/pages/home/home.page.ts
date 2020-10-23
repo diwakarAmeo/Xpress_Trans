@@ -60,25 +60,15 @@ export class HomePage implements OnInit {
       console.log(err);
       this.helperService.showAlert(err);
     })
-    
-    // let req = {
-    //   phone: this.phonenumber.value,
-    //   code: 'SVP-JKA1555-COS0651'
-    // }
-    // let req = {
-    //   phone: this.phonenumber.value,
-    //   code: 'P-4AD190620-19.06.2020-1-ADIDAS128'
-    // }
-    // localStorage.setItem('item', JSON.stringify(req));
   }
 
   scanRequestCode(data?: any) {
     this.homeService.requestCode(data).then((res: any) => {
       // this.openErrorMsg(res);
       let navigationExtras: NavigationExtras = { state: { data: res } };
-      if (res['ERROR'] == 'ERROR1') {
-      this.router.navigate(['/error'], navigationExtras);
-      }else {
+      if (res['ERROR'] == 'ERROR') {
+        this.router.navigate(['/error'], navigationExtras);
+      } else {
         this.router.navigate(['/response'], navigationExtras);
       }
     }, (err: any) => {

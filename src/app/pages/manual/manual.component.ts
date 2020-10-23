@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HomeService } from 'src/app/services/home-service';
 import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
 import { ResponseModalComponent } from 'src/app/shared/components/response-modal/response-modal.component';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-manual',
@@ -18,6 +19,7 @@ export class ManualComponent implements OnInit {
   constructor(
     private homeService: HomeService,
     private navctrl: NavController,
+    private router: Router,
     private modalController: ModalController,
     private fb: FormBuilder
   ) { }
@@ -42,9 +44,12 @@ export class ManualComponent implements OnInit {
     if (this.manualForm.valid) {
       console.log(this.manualForm.value);
       this.homeService.requestCode(this.manualForm.value).then((res: any) => {
-        this.result = res;
-        console.log(res)
-        this.openErrorMsg(res);
+        let navigationExtras: NavigationExtras = { state: { data: res } };
+      if (res['ERROR'] == 'ERROR') {
+        this.router.navigate(['/error'], navigationExtras);
+      } else {
+        this.router.navigate(['/response'], navigationExtras);
+      }
       }).catch((err) => {
         console.log(err);
       });
