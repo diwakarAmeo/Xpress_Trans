@@ -43,29 +43,29 @@ export class HomePage implements OnInit {
   }
 
   scan() {
-    // this.barcodeService.scan('QR_CODE').then((res: any) => {
-    //   if (!res.cancelled) {
-    //     if (res.text) {
-    //       let req = {
-    //         phone: this.phonenumber.value,
-    //         code: res.text
-    //       }
-    //       localStorage.setItem('item', JSON.stringify(req));
-    //       this.scanRequestCode(req);
-    //     } else {
-    //       this.helperService.showAlert('Please try again');
-    //     }
-    //   }
-    // }, (err: any) => {
-    //   console.log(err);
-    //   this.helperService.showAlert(err);
-    // })
-    let req = {
-      phone: this.phonenumber.value,
-      code: 'P-040620OR-04.06.2020-1-ORSAY00377'
-    }
-    localStorage.setItem('item', JSON.stringify(req));
-    this.scanRequestCode(req);
+    this.barcodeService.scan('QR_CODE').then((res: any) => {
+      if (!res.cancelled) {
+        if (res.text) {
+          let req = {
+            phone: this.phonenumber.value,
+            code: res.text
+          }
+          localStorage.setItem('item', JSON.stringify(req));
+          this.scanRequestCode(req);
+        } else {
+          this.helperService.showAlert('Please try again');
+        }
+      }
+    }, (err: any) => {
+      console.log(err);
+      this.helperService.showAlert(err);
+    })
+    // let req = {
+    //   phone: this.phonenumber.value,
+    //   code: 'P-040620OR-04.06.2020-1-ORSAY00377'
+    // }
+    // localStorage.setItem('item', JSON.stringify(req));
+    // this.scanRequestCode(req);
   }
 
   scanRequestCode(data?: any) {
