@@ -23,6 +23,14 @@ ion-content {
         --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
         height: 50px;
     }
+    .reciever-name {
+        background: #fff;
+        color: rgb(46, 43, 43);
+        padding:1rem;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
+    }
 
     .data_item {
         margin: 1.5rem 0;

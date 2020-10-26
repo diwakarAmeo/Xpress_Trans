@@ -9,11 +9,14 @@ import { NavController } from '@ionic/angular';
 })
 export class ResponsePage implements OnInit {
 
-  responseData: any;
+  responseData: any[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private navCtrl: NavController) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
+        this.responseData = this.router.getCurrentNavigation().extras.state.data;
+        console.log(this.responseData);
+        
       } 
       else {
         this.navCtrl.navigateBack(["/home"]);

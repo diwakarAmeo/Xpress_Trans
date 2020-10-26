@@ -65,7 +65,7 @@ export class HomePage implements OnInit {
   scanRequestCode(data?: any) {
     this.homeService.requestCode(data).then((res: any) => {
       // this.openErrorMsg(res);
-      let navigationExtras: NavigationExtras = { state: { data: res } };
+      let navigationExtras: NavigationExtras = { state: { data: res, phone: this.phonenumber.value } };
       if (res['ERROR'] == 'ERROR') {
         this.router.navigate(['/error'], navigationExtras);
       } else {
