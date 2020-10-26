@@ -1,5 +1,5 @@
 ion-content {
-    --background: #fff;
+    // --background: #fff;
 
     ion-item {
         margin: 4px 0px;
@@ -15,6 +15,10 @@ ion-content {
         }
     }
 
+    .item-row {
+        border-bottom: 1px solid rgb(228, 224, 224);
+    }
+    
     ion-button {
         --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
         height: 50px;

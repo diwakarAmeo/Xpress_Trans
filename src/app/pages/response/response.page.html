@@ -15,9 +15,54 @@
 
       <h1> 100 - A3 SPORT:OC Novy Smichov,CZ 15000,Praha 5,Plzenska 8 </h1>
       <!-- <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p> -->
-
+      <ion-item>
+        <ion-label position="floating"></ion-label>
+        <ion-input type="text" inputmode="text" placeholder="P-6AA8520-31.07.2018-1-CCC1047" name="code" required>
+        </ion-input>
+      </ion-item>
 
     </div>
+
+    <ion-list>
+
+      <ion-row class="item-row" *ngFor="let item of [1,2,3]">
+        <ion-col size="5">
+          <ion-item lines="full">
+            <ion-label>ID: </ion-label>
+            <ion-input type="text" inputmode="text" name="code" placeholder="45385734" required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item lines="none">
+            <ion-label>mnozstvi</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item lines="full">
+            <ion-input type="text" inputmode="text" name="code" placeholder="5" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="9">
+          <ion-item lines="none" class="ion-text-right">
+            <ion-label color="dark">
+              <p>Celkem dodáno </p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item lines="none" class="ion-text-left">
+            <ion-label color="dark">
+              <p style="font-size:17px;"> 5 </p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- <div class="ion-text-right">
+        <p style="font-size:16px; margin: 4px; padding: 4px;">Celkem dodáno : 5<span></span></p>
+      </div> -->
+    </ion-list>
 
     <!-- <div class="data_item">
       <ion-item *ngFor="let item of responseData" lines="none">
@@ -25,15 +70,13 @@
         <ion-icon color="success" name="checkmark-outline"></ion-icon>
       </ion-item>
     </div> -->
-    <br />
-    <div class="delivered">
-      <ion-item lines="none" class="ion-text-center">
+    <!-- <div class="delivered">
+      <ion-item lines="none" class="ion-text-left">
         <ion-label color="dark">
           <p style="font-size:17px;">Celkem dodáno : <span></span></p>
         </ion-label>
-        <!-- <ion-text color="medium"><b></b></ion-text> -->
       </ion-item>
-    </div>
+    </div> -->
 
     <ion-item>
       <ion-textarea rows="3" placeholder="poznámku pro případ nesrovnalostí ..." name="notes" mode="ios">

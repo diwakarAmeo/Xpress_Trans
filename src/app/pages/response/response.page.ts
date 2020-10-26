@@ -14,9 +14,10 @@ export class ResponsePage implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private navCtrl: NavController) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-      } else {
-        this.navCtrl.navigateBack(["/home"]);
-      }
+      } 
+      // else {
+      //   this.navCtrl.navigateBack(["/home"]);
+      // }
     });
   }
 
