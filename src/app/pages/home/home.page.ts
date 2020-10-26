@@ -60,18 +60,11 @@ export class HomePage implements OnInit {
       console.log(err);
       this.helperService.showAlert(err);
     })
-    // let req = {
-    //   phone: this.phonenumber.value,
-    //   code: 'P-040620OR-04.06.2020-1-ORSAY00377'
-    // }
-    // localStorage.setItem('item', JSON.stringify(req));
-    // this.scanRequestCode(req);
   }
 
   scanRequestCode(data?: any) {
     this.homeService.requestCode(data).then((res: any) => {
       // this.openErrorMsg(res);
-      console.log(res)
       let navigationExtras: NavigationExtras = { state: { data: res } };
       if (res['ERROR'] == 'ERROR') {
         this.router.navigate(['/error'], navigationExtras);
