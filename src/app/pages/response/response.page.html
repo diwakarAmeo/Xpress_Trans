@@ -24,7 +24,7 @@
           <ion-item lines="none">
             <ion-label>mnozstvi :</ion-label>
             <ion-input type="number" pattern="[0-9]*" placeholder="{{item.consNumBC}}"
-              [(ngModel)]="data.consignment[item.consPosition]" value="{{item.consNumBC}}" (keyup)="getTotal()"
+              [(ngModel)]="data.consignment[item].consPosition" value="{{item.consNumBC}}" (keyup)="getTotal()"
               required></ion-input>
           </ion-item>
         </ion-col>
@@ -33,7 +33,7 @@
         <ion-col size="7" offset="5">
           <ion-item lines="none">
             <ion-label color="dark">Celkem dodáno: </ion-label>
-            <ion-text slot="end" color="primary" style="padding: 0 15px 0 0;"><b>{{totalAmount}}</b></ion-text>
+            <ion-text slot="end" color="primary"><b>{{totalAmount}}</b></ion-text>
           </ion-item>
         </ion-col>
       </ion-row>
