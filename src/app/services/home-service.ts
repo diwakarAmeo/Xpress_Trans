@@ -30,6 +30,11 @@ export class HomeService {
         });
     }
 
+    postRequestCode(data: any, form: any) {
+        const url = `XPT-MobDistribuce.php?M=${data.phone}|${data.code}`;
+        return this.baseService.post(url, form);
+    }
+    
     postQrCode(data: any) {
         const url = `XPT-MobDistribuceSVOZ.php?M=${data.phone}|${data.code}`;
         return this.baseService.get(url);

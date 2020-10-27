@@ -13,7 +13,7 @@
       <!-- <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="primary" (click)="backbtn()">
         </ion-icon> -->
 
-      <h4>{{responseData[0].receiverName}}</h4>
+      <h4>{{responseData.receiverName}}</h4>
       <!-- <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p> -->
 
     </div>
@@ -24,26 +24,21 @@
     <ion-input type="text" inputmode="text" placeholder="P-6AA8520-31.07.2018-1-CCC1047" name="code" required>
     </ion-input>
   </ion-item>
-      <ion-row class="item-row" *ngFor="let item of [1,2,3]">
+      <ion-row class="item-row" *ngFor="let data of consValues">
         <ion-col size="5">
           <ion-item lines="full">
-            <ion-label>ID: </ion-label>
-            <ion-input type="text" inputmode="text" name="code" placeholder="45385734" required></ion-input>
+            <ion-label>ID: {{data.consPosition}}  </ion-label>
           </ion-item>
         </ion-col>
-        <ion-col size="4">
+        <ion-col size="7">
           <ion-item lines="none">
-            <ion-label>mnozstvi</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col size="3">
-          <ion-item lines="full">
-            <ion-input type="text" inputmode="text" name="code" placeholder="5" required></ion-input>
+            <ion-label>mnozstvi :</ion-label>
+            <ion-input type="text" inputmode="text" name="code" placeholder="5" [(ngModel)]="data.consNumBC"  (keyup)="getTotal()" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="9">
+        <ion-col size="">
           <ion-item lines="none" class="ion-text-right">
             <ion-label color="dark">
               <p>Celkem dodáno </p>
