@@ -47,7 +47,6 @@ export class HomeService {
         data.ERROR = arr.ERROR;
         for (let i in arr) {
             if (i !== 'receiverID' && i !== 'receiverName' && i !== 'ERROR' && i !== 'ver' && i !== 'ERRORMSG') {
-                console.log(i + " - " + arr[i]);
                 let obj = JSON.parse(arr[i]);
                 data.consignment.push(obj)
             }
