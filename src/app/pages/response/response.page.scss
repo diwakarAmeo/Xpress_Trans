@@ -13,6 +13,9 @@ ion-content {
             cursor: pointer;
             filter: drop-shadow(4px 4px 9px rgba(0, 0, 0, 0.3));
         }
+        ion-input[type=number]{
+        text-align: right;
+        }
     }
 
     .item-row {
