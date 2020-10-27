@@ -15,12 +15,12 @@
 
     <ion-list>
       <ion-row class="item-row" *ngFor="let item of response.consignment">
-        <ion-col size="6">
+        <ion-col size="5">
           <ion-item lines="full">
             <ion-label>ID: {{item.consPosition}} </ion-label>
           </ion-item>
         </ion-col>
-        <ion-col size="6">
+        <ion-col size="7">
           <ion-item lines="none">
             <ion-label>mnozstvi :</ion-label>
             <ion-input type="number" pattern="[0-9]*" placeholder="{{item.consNumBC}}"
@@ -30,20 +30,19 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="6" offset="6">
+        <ion-col size="7" offset="5">
           <ion-item lines="none">
             <ion-label color="dark">Celkem dodáno: </ion-label>
-            <ion-text slot="end" color="primary"><b>{{totalAmount}}</b></ion-text>
+            <ion-text slot="end" color="primary" style="padding: 0 15px 0 0;"><b>{{totalAmount}}</b></ion-text>
           </ion-item>
         </ion-col>
       </ion-row>
     </ion-list>
 
     <ion-item>
-      <ion-textarea rows="3" [(ngModel)]="data.notes" placeholder="poznámku pro případ nesrovnalostí ..." name="notes" mode="ios">
+      <ion-textarea rows="3" placeholder="poznámku pro případ nesrovnalostí ..." name="notes" mode="ios">
       </ion-textarea>
     </ion-item>
-
     <div class="btns ion-text-center ion-margin-vertical">
       <ion-button class="btn" expand="block" color="primary" (click)="confirmDelivery()">POTVRDIT DORUČENÍ
       </ion-button>

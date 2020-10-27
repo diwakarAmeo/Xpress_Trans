@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { HelperService } from 'src/app/services/helper-service';
+import { HomeService } from 'src/app/services/home-service';
 
 @Component({
   selector: 'app-response',
@@ -23,7 +24,7 @@ export class ResponsePage implements OnInit {
     notes: '',
     consignment: [],
     code: '',
-    phonenumber: '',
+    phone: '',
     latitude: null,
     longitude: null
   }
@@ -32,6 +33,7 @@ export class ResponsePage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private navCtrl: NavController,
+    private homeService: HomeService,
     private helperService: HelperService
   ) {
     this.route.queryParams.subscribe(params => {
@@ -50,7 +52,7 @@ export class ResponsePage implements OnInit {
 
   getRecords() {
     this.data.code = this.req.code;
-    this.data.phonenumber = this.req.phone;
+    this.data.phone = this.req.phone;
 
     for (let item in this.response.consignment) {
       this.defaultValues[this.response.consignment[item].consPosition] = this.response.consignment[item]['consNumBC'];
@@ -83,7 +85,32 @@ export class ResponsePage implements OnInit {
   }
 
   confirmDelivery() {
-    debugger;
+    if (this.isValidate()) {
+      let request = {};
+      request = this.data;
+      let consignments = [];
+      for (let i in this.data['consignment']) {
+        consignments.push({ 'key': i, 'value': this.data['consignment'][i] });
+      }
+
+      let formData = new FormData();
+      formData.append('code', JSON.stringify(this.data.code));
+      formData.append('consignment', JSON.stringify(consignments));
+      formData.append('latitude', this.data.latitude);
+      formData.append('longitude', this.data.longitude);
+      formData.append('notes', this.data.notes);
+      formData.append('phonenumber', this.data.phone);
+      console.log(formData);
+
+      debugger;
+
+      // this.homeService.postRequestCode(this.req, request).then((res: any) => {
+      //   debugger;
+      // }, (err: any) => {
+      //   console.log(err);
+      //   this.helperService.errorMessage('Chyba, nepodařilo se odeslat data. Opakovat!!');
+      // })
+    }
   }
 
   cancelAction(): void {
