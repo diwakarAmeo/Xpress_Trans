@@ -17,7 +17,7 @@ ion-content {
         ion-input[type=number]{
         text-align: right;
         }
-        
+
     }
 
     .item-row {
@@ -70,4 +70,13 @@ ion-content {
         left: 15px;
         font-size: 24px;
     }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+   
 }
