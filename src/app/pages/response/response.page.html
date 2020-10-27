@@ -1,39 +1,33 @@
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <div class="response-content">
+  <div class="response-content" *ngIf="response">
     <ion-row>
       <ion-col class="ion-text-center">
         <img src="assets/imgs/brand_logo_remo.png">
       </ion-col>
     </ion-row>
 
-
     <div class=" reciever-name ion-text-center">
-
-      <!-- <ion-icon name="arrow-back-circle-outline" class="back_icon" size="large" color="primary" (click)="backbtn()">
-        </ion-icon> -->
-
-      <h4>{{responseData.receiverName}}</h4>
-      <!-- <p style="margin: 10px 0px; font-size: 14px;"><b>CZ-14800 Prague</b></p> -->
-
+      <h4>{{response.receiverName}}</h4>
     </div>
 
     <ion-list>
-  <ion-item>
-    <ion-label position="floating"></ion-label>
-    <ion-input type="text" inputmode="text" placeholder="P-6AA8520-31.07.2018-1-CCC1047" name="code" required>
-    </ion-input>
-  </ion-item>
-      <ion-row class="item-row" *ngFor="let data of consValues">
+      <ion-item>
+        <ion-label position="floating"></ion-label>
+        <ion-input type="text" inputmode="text" placeholder="P-6AA8520-31.07.2018-1-CCC1047" name="code" required>
+        </ion-input>
+      </ion-item>
+      <ion-row class="item-row" *ngFor="let item of response.consignment">
         <ion-col size="5">
           <ion-item lines="full">
-            <ion-label>ID: {{data.consPosition}}  </ion-label>
+            <ion-label>ID: {{item.consPosition}} </ion-label>
           </ion-item>
         </ion-col>
         <ion-col size="7">
           <ion-item lines="none">
             <ion-label>mnozstvi :</ion-label>
-            <ion-input type="text" inputmode="text" name="code" placeholder="5" [(ngModel)]="data.consNumBC"  (keyup)="getTotal()" required></ion-input>
+            <ion-input type="number" pattern="[0-9]*" placeholder="{{item.consNumBC}}" 
+            [(ngModel)]="data.consignment[item.consPosition]" value="{{item.consNumBC}}" (keyup)="getTotal()" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -48,29 +42,12 @@
         <ion-col size="3">
           <ion-item lines="none" class="ion-text-left">
             <ion-label color="dark">
-              <p style="font-size:17px;"> 5 </p>
+              <p style="font-size:17px;">{{totalAmount}}</p>
             </ion-label>
           </ion-item>
         </ion-col>
       </ion-row>
-      <!-- <div class="ion-text-right">
-        <p style="font-size:16px; margin: 4px; padding: 4px;">Celkem dodáno : 5<span></span></p>
-      </div> -->
     </ion-list>
-
-    <!-- <div class="data_item">
-      <ion-item *ngFor="let item of responseData" lines="none">
-        <ion-label color="dark">{{item.packPosition}}</ion-label>
-        <ion-icon color="success" name="checkmark-outline"></ion-icon>
-      </ion-item>
-    </div> -->
-    <!-- <div class="delivered">
-      <ion-item lines="none" class="ion-text-left">
-        <ion-label color="dark">
-          <p style="font-size:17px;">Celkem dodáno : <span></span></p>
-        </ion-label>
-      </ion-item>
-    </div> -->
 
     <ion-item>
       <ion-textarea rows="3" placeholder="poznámku pro případ nesrovnalostí ..." name="notes" mode="ios">
