@@ -15,16 +15,17 @@ export class ResponsePage implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private navCtrl: NavController) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.responseData.push(this.router.getCurrentNavigation().extras.state.data);
+        this.responseData = this.router.getCurrentNavigation().extras.state.data;
         console.log(this.responseData, this.responseData.length);
+        debugger
         for (let index = 0; index < this.responseData.length; index++) {
-          
+
           let indexStr = index.toString();
           this.sortedData = JSON.parse(this.responseData[index][indexStr]);
           console.log(this.sortedData);
-         }
-        
-      } 
+        }
+
+      }
       else {
         this.navCtrl.navigateBack(["/home"]);
       }
@@ -37,5 +38,5 @@ export class ResponsePage implements OnInit {
   cancelAction(): void {
     this.navCtrl.navigateBack(['/home']);
   }
-  
+
 }

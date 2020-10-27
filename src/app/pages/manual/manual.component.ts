@@ -44,12 +44,12 @@ export class ManualComponent implements OnInit {
     if (this.manualForm.valid) {
       console.log(this.manualForm.value);
       this.homeService.requestCode(this.manualForm.value).then((res: any) => {
-      let navigationExtras: NavigationExtras = { state: { data: res } };
-      if (res['ERROR'] == 'ERROR') {
-        this.router.navigate(['/error'], navigationExtras);
-      } else {
-        this.router.navigate(['/response'], navigationExtras);
-      }
+        let navigationExtras: NavigationExtras = { state: { data: res } };
+        if (res['ERROR'] == 'ERROR') {
+          this.router.navigate(['/error'], navigationExtras);
+        } else {
+          this.router.navigate(['/response'], navigationExtras);
+        }
       }).catch((err) => {
         console.log(err);
       });
