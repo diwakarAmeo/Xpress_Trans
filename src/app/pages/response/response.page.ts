@@ -81,15 +81,14 @@ export class ResponsePage implements OnInit {
       return accumulator + currentValue;
     });
   }
-item: any;
+
   validateRecord(index) {
-    this.item = this.consignmentList[index];
-    if (this.item.amount > this.item.actualAmount) {
-      this.item.isValid = false;
-      this.helperService.errorMessage(`Hodnota musí být menší než výchozí hodnota,
-      Neplatné množství, ID: ${this.item.id}`);
+    let item = this.consignmentList[index];
+    if (item.amount > item.actualAmount) {
+      item.isValid = false;
+      this.helperService.errorMessage(`Neplatné množství, ID: ${item.id}`);
     } else {
-      this.item.isValid = true;
+      item.isValid = true;
     }
   }
 
@@ -120,7 +119,7 @@ item: any;
       formData.append('phonenumber', this.req.phone);;
 
       this.homeService.postRequestCode(this.req, formData).then((res: any) => {
-      this.openErrorMsg(res);
+      this.openModal(res);
       }, (err: any) => {
         console.log(err);
         this.helperService.errorMessage('Chyba, nepodařilo se odeslat data. Opakovat!!');
@@ -128,7 +127,7 @@ item: any;
     }
   }
 
-  async openErrorMsg(res?: any) {
+  async openModal(res?: any) {
     const modal = await this.modalController.create({
       component: DispalyModalComponent,
       componentProps: { data: res},
@@ -139,8 +138,7 @@ item: any;
 
     await modal.present();
 
-    modal.onDidDismiss().then((res) => {
-      console.log(res, 'on modal dismis');
+    modal.onWillDismiss().then((res) => {
       this.cancelAction();
     });
   }

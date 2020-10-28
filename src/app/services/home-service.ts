@@ -24,14 +24,51 @@ export class HomeService {
         });
     }
 
+    postRequestCode(data, formData) {
+        let self = this;
+        let promise = new Promise((resolve, reject) => {
+            self.xhr(`${this.baseApiUrl}XPT-MobDistribuce.php?M=${data.phone}|${data.code}`, formData, function (obj) {
+                obj = JSON.parse(obj);
+                console.log("From server", obj);
+                resolve(obj);
+            });
+        });
+        return promise;
+    }
+
     postQrCode(data: any) {
         const url = `XPT-MobDistribuceSVOZ.php?M=${data.phone}|${data.code}`;
         return this.baseService.get(url);
     }
 
+    // postAllBaecodeWithQr(data: any) {
+    //     const url = `XPT-MobDistribuceSVOZ.php?M=${data.phone}|${data.code}`;
+    //     return this.baseService.post(url, data);
+    // }
+
     postAllBaecodeWithQr(data: any) {
-        const url = `XPT-MobDistribuceSVOZ.php?M=${data.phone}|${data.code}`;
-        return this.baseService.post(url, data);
+        let self = this;
+        let formData = new FormData();
+        let promise = new Promise((resolve, reject) => {
+            self.xhr(`${this.baseApiUrl}XPT-MobDistribuceSVOZ.php?M=${data.phone}|${data.code}`, data.response, function (obj) {
+                obj = JSON.parse(obj);
+                console.log("From server", obj);
+                resolve(obj);
+            });
+        });
+
+        return promise;
+    }
+
+    xhr(url, data, callback) {
+        let request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                callback(request.responseText);
+            }
+        };
+        request.open('POST', url, true);
+        request.send(data);
     }
 
     stringToJson(arr) {
@@ -46,29 +83,6 @@ export class HomeService {
             }
         }
         return data;
-    }
-
-    postRequestCode(data, formData) {
-        let self = this;
-        let promise = new Promise((resolve, reject) => {
-            self.xhr(`${this.baseApiUrl}XPT-MobDistribuce.php?M=${data.phone}|${data.code}`, formData, function (obj) {
-                obj = JSON.parse(obj);
-                console.log("From server", obj);
-                resolve(obj);
-            });
-        });
-        return promise;
-    }
-
-    xhr(url, data, callback) {
-        let request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                callback(request.responseText);
-            }
-        };
-        request.open('POST', url, true);
-        request.send(data);
     }
 
 }

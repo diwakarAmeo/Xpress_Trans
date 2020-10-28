@@ -82,7 +82,6 @@ export class BarcodeResponsePage implements OnInit {
   }
 
   postAllBarcode(data: any) {
-    debugger;
     this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
       this.result = res;
       this.openErrorMsg(res);
