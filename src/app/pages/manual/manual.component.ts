@@ -26,7 +26,7 @@ export class ManualComponent implements OnInit {
 
   ngOnInit() {
     this.manualForm = this.fb.group({
-      code: ['P-040620OR-04.06.2020-1-ORSAY00419', [Validators.required]],
+      code: ['', [Validators.required]],
       phone: [''],
     });
     let item = JSON.parse(localStorage.getItem('item'));

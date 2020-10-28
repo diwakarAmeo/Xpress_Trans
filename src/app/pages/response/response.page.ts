@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { HelperService } from 'src/app/services/helper-service';
 import { HomeService } from 'src/app/services/home-service';
+import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
 
 @Component({
   selector: 'app-response',
@@ -34,7 +35,8 @@ export class ResponsePage implements OnInit {
     private navCtrl: NavController,
     private geolocation: Geolocation,
     private homeService: HomeService,
-    private helperService: HelperService
+    private helperService: HelperService,
+    private modalController: ModalController
   ) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -79,14 +81,15 @@ export class ResponsePage implements OnInit {
       return accumulator + currentValue;
     });
   }
-
+item: any;
   validateRecord(index) {
-    let item = this.consignmentList[index];
-    if (item.amount > item.actualAmount) {
-      item.isValid = false;
-      this.helperService.errorMessage(`Neplatné množství, ID: ${item.id}`);
+    this.item = this.consignmentList[index];
+    if (this.item.amount > this.item.actualAmount) {
+      this.item.isValid = false;
+      this.helperService.errorMessage(`Hodnota musí být menší než výchozí hodnota,
+      Neplatné množství, ID: ${this.item.id}`);
     } else {
-      item.isValid = true;
+      this.item.isValid = true;
     }
   }
 
@@ -117,12 +120,29 @@ export class ResponsePage implements OnInit {
       formData.append('phonenumber', this.req.phone);;
 
       this.homeService.postRequestCode(this.req, formData).then((res: any) => {
-        debugger;
+      this.openErrorMsg(res);
       }, (err: any) => {
         console.log(err);
         this.helperService.errorMessage('Chyba, nepodařilo se odeslat data. Opakovat!!');
       })
     }
+  }
+
+  async openErrorMsg(res?: any) {
+    const modal = await this.modalController.create({
+      component: DispalyModalComponent,
+      componentProps: { data: res},
+      cssClass: 'modal_content',
+      showBackdrop: false,
+      mode: 'ios',
+    });
+
+    await modal.present();
+
+    modal.onDidDismiss().then((res) => {
+      console.log(res, 'on modal dismis');
+      this.cancelAction();
+    });
   }
 
   cancelAction(): void {

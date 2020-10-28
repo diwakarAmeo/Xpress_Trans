@@ -3,27 +3,25 @@
   <div class="ion-padding">
     <br />
     <ion-row>
-      <ion-col>
-        <ion-button class="close-btn" (click)="dismiss()" fill="solid" size="small" color="dark">
-          <ion-icon name="close"></ion-icon>
-        </ion-button>
-      </ion-col>
-      <ion-col *ngIf="(data.receiverID || data.receiverName)">
+      <ion-col class="ion-text-center">
         <img src="assets/imgs/brand_logo_remo.png" class="brand_logo">
       </ion-col>
     </ion-row>
 
-    <div class="ion-text-center ion-padding content">
-      <div *ngIf="!(data.receiverID || data.receiverName)">
-        <h2 class="ion-text-center" style="color: red;">{{data.ERROR}} </h2>
-        <p>{{data.ERRORMSG}}</p>
+    <div class="ion-text-center ion-padding-vertical content">
+      <div  class="ion-text-center" >
+        <h2 style="color: red;">{{data.ERROR}} </h2>
+        <div class="error-msg ion-padding" innerHtml="{{data.ERRORMSG}}"></div>
+        <div>{{data.ver}}</div>
       </div>
 
-      <div *ngIf="(data.receiverID || data.receiverName)">
-        <h1>{{data.receiverName}}</h1>
-        <p>{{data.receiverID}}</p>
-      </div>
     </div>
   </div>
 
+  <div class="footer ion-text-center ion-margin">
+    <ion-button class="ion-margin-vertical" expand="block" color="dark" (click)="dismiss()">
+      ZRUŠIT
+    </ion-button>
+
+  </div>
 </ion-content>

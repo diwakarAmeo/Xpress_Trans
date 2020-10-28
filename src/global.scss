@@ -108,6 +108,16 @@ ion-content {
     opacity: .9;
 }
 
+.error{
+    border: 2px solid rgb(253, 58, 58);
+    transition: all 1s;
+}
+
+.success {
+    border: 2px solid rgb(59, 255, 59);
+    transition: all 1s;
+}
+
 *::-webkit-scrollbar,
 ::-webkit-scrollbar {
     display: none !important;

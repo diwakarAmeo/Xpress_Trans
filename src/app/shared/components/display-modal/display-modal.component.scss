@@ -1,27 +1,11 @@
 ion-content {
-    --background: #fff;
-    overflow: hidden !important;
+     ion-button {
+         --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.1);
+     }
 
-    ion-button.close-btn {
-        --box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .content {
-        border-radius: 30px;
-    }
-
-    .footer {
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%)
-    }
-}
-
-.svg-bg{
-    position: relative;
-    bottom: -5px;
+     .content {
+         background-color: #fff;
+         border-radius: 8px;
+         box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
+     }
 }
