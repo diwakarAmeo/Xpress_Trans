@@ -15,7 +15,6 @@ export class BarcodeResponsePage implements OnInit {
   pickUpObject: any;
   barcodeData: any[] = [];
   scannedCount: number = 0;
-  result: any = {};
 
   constructor(
     private navctrl: NavController,
@@ -83,22 +82,16 @@ export class BarcodeResponsePage implements OnInit {
 
   postAllBarcode(data: any) {
     this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
-      this.result = res;
       this.openErrorMsg(res);
     }, (err: any) => {
+      console.log(err);
     });
   }
 
   async openErrorMsg(res?: any) {
-    let component;
-    if ((res.receiverID || res.receiverName)) {
-      component = ResponseModalComponent;
-    } else {
-      component = DispalyModalComponent;
-    }
     const modal = await this.modalController.create({
-      component: component,
-      componentProps: { data: this.result },
+      component: ResponseModalComponent,
+      componentProps: { data: res },
       cssClass: 'modal_content',
       showBackdrop: false,
       mode: 'ios'
