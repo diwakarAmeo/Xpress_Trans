@@ -95,7 +95,7 @@ export class ResponsePage implements OnInit {
   isValidate() {
     let records = this.consignmentList.filter(x => !x.isValid);
     if (records.length > 0) {
-      this.helperService.errorMessage(`Hodnota musí být menší než výchozí hodnota, Neplatné množství, ID: ${this.consignmentList[0].id}`);
+      this.helperService.errorMessage(`Neplatné množství, ID: ${this.consignmentList[0].id}`);
       return false;
     } else {
       return true;
