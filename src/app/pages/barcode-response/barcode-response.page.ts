@@ -106,7 +106,7 @@ export class BarcodeResponsePage implements OnInit {
 
     await modal.present();
 
-    modal.onDidDismiss().then((res) => {
+    modal.onWillDismiss().then((res) => {
       this.cancelAction();
     });
   }

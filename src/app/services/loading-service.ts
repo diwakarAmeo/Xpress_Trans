@@ -21,16 +21,16 @@ export class LoadingInterceptor implements HttpInterceptor {
         this.totalRequests++;
         if (this.totalRequests === 1) {
             this.helperService.isLoading = true;
-            setTimeout(()=>{
-            this.helperService.isLoading = false;
-            },10000);
+            setTimeout(() => {
+                this.helperService.isLoading = false;
+            }, 10000);
         }
         return <any>next.handle(req).pipe(
             catchError((err) => {
                 this.helperService.isLoading = false;
                 throw err;
             }),
- 
+
             finalize(() => {
                 this.totalRequests--;
                 if (this.totalRequests === 0) {

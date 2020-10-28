@@ -24,7 +24,7 @@
           <ion-item lines="none" ngClass="{{ consignment.isValid ? 'success' : 'error' }}">
             <ion-label>mnozstvi :</ion-label>
             <ion-input type="number" pattern="[0-9]*" placeholder="{{consignment.actualAmount}}" [(ngModel)]="consignment.amount" 
-            value="{{consignment.amount}}" (keyup)="validateRecord(index)" required></ion-input>
+            value="{{consignment.amount}}" (ionChange)="validateRecord(index)" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>

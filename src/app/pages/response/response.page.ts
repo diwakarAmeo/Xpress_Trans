@@ -87,8 +87,10 @@ export class ResponsePage implements OnInit {
     if (item.amount > item.actualAmount) {
       item.isValid = false;
       this.helperService.errorMessage(`Neplatné množství, ID: ${item.id}`);
+      return;
     } else {
       item.isValid = true;
+      return;
     }
   }
 
