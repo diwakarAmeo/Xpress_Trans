@@ -14,18 +14,17 @@
     </div>
 
     <ion-list>
-      <ion-row class="item-row" *ngFor="let item of response.consignment">
+      <ion-row class="item-row" *ngFor="let consignment of consignmentList; let index = index">
         <ion-col size="5">
           <ion-item lines="full">
-            <ion-label>ID: {{item.consPosition}} </ion-label>
+            <ion-label>ID: {{consignment.id}} </ion-label>
           </ion-item>
         </ion-col>
         <ion-col size="7">
           <ion-item lines="none">
             <ion-label>mnozstvi :</ion-label>
-            <ion-input type="number" pattern="[0-9]*" placeholder="{{item.consNumBC}}"
-              [(ngModel)]="data.consignment[item.consPosition]" value="{{item.consNumBC}}" (keyup)="getTotal()"
-              required></ion-input>
+            <ion-input type="number" pattern="[0-9]*" placeholder="{{consignment.actualAmount}}" [(ngModel)]="consignment.amount" 
+            value="{{consignment.amount}}" (keyup)="validateRecord(index)" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -33,7 +32,7 @@
         <ion-col size="7" offset="5">
           <ion-item lines="none">
             <ion-label color="dark">Celkem dodáno: </ion-label>
-            <ion-text slot="end" color="primary"><b>{{totalAmount}}</b></ion-text>
+            <ion-text slot="end" color="primary"><b>{{getTotal()}}</b></ion-text>
           </ion-item>
         </ion-col>
       </ion-row>

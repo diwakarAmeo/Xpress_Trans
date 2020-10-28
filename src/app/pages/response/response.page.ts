@@ -14,9 +14,8 @@ import { HomeService } from 'src/app/services/home-service';
 export class ResponsePage implements OnInit {
 
   response: any;
-  totalAmount = 0;
-  totalDelivery: number = 0;
-  defaultValues = [];
+  consignmentList: any[] = [];
+
   req: any = {
     code: '',
     phone: ''
@@ -25,8 +24,6 @@ export class ResponsePage implements OnInit {
   data = {
     notes: '',
     consignment: [],
-    code: '',
-    phone: '',
     latitude: null,
     longitude: null
   }
@@ -44,6 +41,7 @@ export class ResponsePage implements OnInit {
         this.req = this.router.getCurrentNavigation().extras.state.req;
         this.response = this.router.getCurrentNavigation().extras.state.data;
         this.getRecords();
+        this.getLocation();
       }
       else {
         this.navCtrl.navigateBack(["/home"]);
@@ -54,15 +52,15 @@ export class ResponsePage implements OnInit {
   ngOnInit() { }
 
   getRecords() {
-    this.data.code = this.req.code;
-    this.data.phone = this.req.phone;
-
     for (let item in this.response.consignment) {
-      this.defaultValues[this.response.consignment[item].consPosition] = this.response.consignment[item]['consNumBC'];
-      this.totalAmount += parseInt(this.response.consignment[item]['consNumBC']);
+      let record = this.response.consignment[item];
+      this.consignmentList.push({
+        id: record.consPosition,
+        amount: record.consNumBC,
+        actualAmount: record.consNumBC,
+        isValid: true
+      })
     }
-    this.totalDelivery = this.totalAmount;
-    this.getLocation();
   }
 
   getLocation() {
@@ -72,58 +70,58 @@ export class ResponsePage implements OnInit {
     }).catch((error) => {
       console.log('Error getting location', error);
     });
-    console.log(this.data)
   }
 
   getTotal() {
-    let total = 0;
-    if (this.isValidate()) {
-      for (let i in this.data.consignment) {
-        total += parseInt(this.data.consignment[i]);
-      }
-      if (isNaN(total)) total = 0;
+    return this.consignmentList.map(x => {
+      return x.amount || 0;
+    }).reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    });
+  }
 
-      this.totalAmount = total;
+  validateRecord(index) {
+    let item = this.consignmentList[index];
+    if (item.amount > item.actualAmount) {
+      item.isValid = false;
+      this.helperService.errorMessage(`Neplatné množství, ID: ${item.id}`);
+    } else {
+      item.isValid = true;
     }
   }
 
   isValidate() {
-    for (let i in this.data.consignment) {
-      console.log(parseInt(this.data.consignment[i]) + " - " + parseInt(this.defaultValues[i]));
-      if (parseInt(this.data.consignment[i]) > parseInt(this.defaultValues[i])) {
-        this.helperService.errorMessage(`Neplatné množství, ID: ${i}`);
-        return false;
-      }
+    let records = this.consignmentList.filter(x => !x.isValid);
+    if (records.length > 0) {
+      this.helperService.errorMessage(`Neplatné množství, ID: ${this.consignmentList[0].id}`);
+      return false;
+    } else {
+      return true;
     }
-    return true;
   }
 
   confirmDelivery() {
     if (this.isValidate()) {
-      let request = {};
-      request = this.data;
+
       let consignments = [];
-      for (let i in this.data['consignment']) {
-        consignments.push({ 'key': i, 'value': this.data['consignment'][i] });
+      for (let item of this.consignmentList) {
+        consignments.push({ 'key': item.id, 'value': item.amount });
       }
 
       let formData = new FormData();
-      formData.append('code', JSON.stringify(this.data.code));
+      formData.append('code', JSON.stringify(this.req.code));
       formData.append('consignment', JSON.stringify(consignments));
       formData.append('latitude', this.data.latitude);
       formData.append('longitude', this.data.longitude);
       formData.append('notes', this.data.notes);
-      formData.append('phonenumber', this.data.phone);
-      console.log(formData);
+      formData.append('phonenumber', this.req.phone);;
 
-      debugger;
-
-      // this.homeService.postRequestCode(this.req, request).then((res: any) => {
-      //   debugger;
-      // }, (err: any) => {
-      //   console.log(err);
-      //   this.helperService.errorMessage('Chyba, nepodařilo se odeslat data. Opakovat!!');
-      // })
+      this.homeService.postRequestCode(this.req, formData).then((res: any) => {
+        debugger;
+      }, (err: any) => {
+        console.log(err);
+        this.helperService.errorMessage('Chyba, nepodařilo se odeslat data. Opakovat!!');
+      })
     }
   }
 

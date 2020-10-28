@@ -29,7 +29,7 @@ export class HelperService {
         const toastElement = await this.toastController.create({
             message: message,
             duration: 3000,
-            color: 'medium'
+            color: 'danger'
         });
         return await toastElement.present();
     }
