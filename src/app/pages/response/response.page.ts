@@ -81,22 +81,21 @@ export class ResponsePage implements OnInit {
       return accumulator + currentValue;
     });
   }
-item: any;
+
   validateRecord(index) {
-    this.item = this.consignmentList[index];
-    if (this.item.amount > this.item.actualAmount) {
-      this.item.isValid = false;
-      this.helperService.errorMessage(`Hodnota musí být menší než výchozí hodnota,
-      Neplatné množství, ID: ${this.item.id}`);
+    let item = this.consignmentList[index];
+    if (item.amount > item.actualAmount) {
+      item.isValid = false;
+      this.helperService.errorMessage(`Neplatné množství, ID: ${item.id}`);
     } else {
-      this.item.isValid = true;
+      item.isValid = true;
     }
   }
 
   isValidate() {
     let records = this.consignmentList.filter(x => !x.isValid);
     if (records.length > 0) {
-      this.helperService.errorMessage(`Neplatné množství, ID: ${this.consignmentList[0].id}`);
+      this.helperService.errorMessage(`Hodnota musí být menší než výchozí hodnota, Neplatné množství, ID: ${this.consignmentList[0].id}`);
       return false;
     } else {
       return true;
