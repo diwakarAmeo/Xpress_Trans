@@ -20,8 +20,7 @@ export class HelperService {
         const toastElement = await this.toastController.create({
             message: message,
             duration: 2000,
-            color: 'success',
-            mode:'ios'
+            color: 'primary',
         });
         return await toastElement.present();
     }
@@ -30,8 +29,7 @@ export class HelperService {
         const toastElement = await this.toastController.create({
             message: message,
             duration: 3000,
-            color: 'danger',
-            mode:'ios'
+            color: 'medium'
         });
         return await toastElement.present();
     }

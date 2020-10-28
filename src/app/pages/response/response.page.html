@@ -24,7 +24,7 @@
           <ion-item lines="none">
             <ion-label>mnozstvi :</ion-label>
             <ion-input type="number" pattern="[0-9]*" placeholder="{{item.consNumBC}}"
-              [(ngModel)]="data.consignment[item].consPosition" value="{{item.consNumBC}}" (keyup)="getTotal()"
+              [(ngModel)]="data.consignment[item.consPosition]" value="{{item.consNumBC}}" (keyup)="getTotal()"
               required></ion-input>
           </ion-item>
         </ion-col>

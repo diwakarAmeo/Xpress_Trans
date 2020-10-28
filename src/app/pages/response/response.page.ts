@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 import { HelperService } from 'src/app/services/helper-service';
 import { HomeService } from 'src/app/services/home-service';
 
@@ -33,6 +35,7 @@ export class ResponsePage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private navCtrl: NavController,
+    private geolocation: Geolocation,
     private homeService: HomeService,
     private helperService: HelperService
   ) {
@@ -59,6 +62,17 @@ export class ResponsePage implements OnInit {
       this.totalAmount += parseInt(this.response.consignment[item]['consNumBC']);
     }
     this.totalDelivery = this.totalAmount;
+    this.getLocation();
+  }
+
+  getLocation() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.data.latitude = resp.coords.latitude;
+      this.data.longitude = resp.coords.longitude;
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+    console.log(this.data)
   }
 
   getTotal() {
