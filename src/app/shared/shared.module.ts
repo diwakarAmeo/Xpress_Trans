@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { DispalyModalComponent } from './components/display-modal/display-modal.component';
 import { CustomLoaderComponent } from './components/custom-loader/custom-loader.component';
 import { ResponseModalComponent } from './components/response-modal/response-modal.component';
 
@@ -16,7 +15,7 @@ import { ResponseModalComponent } from './components/response-modal/response-mod
 
   ],
   exports: [CustomLoaderComponent],
-  declarations: [DispalyModalComponent,CustomLoaderComponent,ResponseModalComponent],
-  entryComponents: [DispalyModalComponent, ResponseModalComponent]
+  declarations: [CustomLoaderComponent,ResponseModalComponent],
+  entryComponents: [ ResponseModalComponent]
 })
 export class SharedModule { }
