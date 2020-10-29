@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { HelperService } from 'src/app/services/helper-service';
 import { HomeService } from 'src/app/services/home-service';
-import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
 
 @Component({
   selector: 'app-response',
@@ -121,28 +120,13 @@ export class ResponsePage implements OnInit {
       formData.append('phonenumber', this.req.phone);;
 
       this.homeService.postRequestCode(this.req, formData).then((res: any) => {
-      this.openModal(res);
+        let navigationExtras: NavigationExtras = { state: { data: res } };
+        this.router.navigate(['/error'], navigationExtras);
       }, (err: any) => {
         console.log(err);
         this.helperService.errorMessage('Chyba, nepodařilo se odeslat data. Opakovat!!');
       })
     }
-  }
-
-  async openModal(res?: any) {
-    const modal = await this.modalController.create({
-      component: DispalyModalComponent,
-      componentProps: { data: res},
-      cssClass: 'modal_content',
-      showBackdrop: false,
-      mode: 'ios',
-    });
-
-    await modal.present();
-
-    modal.onWillDismiss().then((res) => {
-      this.cancelAction();
-    });
   }
 
   cancelAction(): void {

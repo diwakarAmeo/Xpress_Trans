@@ -1,5 +1,4 @@
 ion-content {
-    // --background: #fff;
 
     ion-item {
         margin: 4px 0px;
@@ -14,8 +13,8 @@ ion-content {
             filter: drop-shadow(4px 4px 9px rgba(0, 0, 0, 0.3));
         }
 
-        ion-input[type=number]{
-        text-align: right;
+        ion-input[type=number] {
+            text-align: right;
         }
 
     }
@@ -23,15 +22,16 @@ ion-content {
     .item-row {
         border-bottom: 1px solid rgb(228, 224, 224);
     }
-    
+
     ion-button {
         --box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2);
         height: 50px;
     }
+
     .reciever-name {
         background: #fff;
         color: rgb(46, 43, 43);
-        padding:1rem;
+        padding: 1rem;
         margin-bottom: 1rem;
         border-radius: 4px;
         box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.1);
@@ -71,12 +71,9 @@ ion-content {
         font-size: 24px;
     }
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
-
-input[type=number] {
-   
 }

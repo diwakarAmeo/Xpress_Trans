@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NavigationExtras, Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
-
-import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
 
 import { HomeService } from 'src/app/services/home-service';
 import { HelperService } from 'src/app/services/helper-service';
 import { BarcodeService } from 'src/app/services/barcode-service';
-import { ResponseModalComponent } from 'src/app/shared/components/response-modal/response-modal.component';
-import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',

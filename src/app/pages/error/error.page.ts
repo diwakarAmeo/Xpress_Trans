@@ -10,7 +10,7 @@ import { NavController } from '@ionic/angular';
 export class ErrorPage implements OnInit {
 
 
-  errorData: any;
+  data: any;
 
   constructor(
     private router: Router,
@@ -19,12 +19,11 @@ export class ErrorPage implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.errorData = this.router.getCurrentNavigation().extras.state.data;
+        this.data = this.router.getCurrentNavigation().extras.state.data;
       } else {
         this.navCtrl.navigateBack(["/home"]);
       }
     });
-
   }
 
   ngOnInit() { }

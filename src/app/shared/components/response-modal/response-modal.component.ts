@@ -12,9 +12,7 @@ export class ResponseModalComponent implements OnInit {
 
   @Input() responsedata;
 
-  ngOnInit() {
-    console.log(this.responsedata)
-  }
+  ngOnInit() {}
 
   dismiss(value = ''): void {
     this.modalController.dismiss(value);

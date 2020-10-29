@@ -3,7 +3,7 @@ import { NavController, ModalController } from '@ionic/angular';
 import { BarcodeService } from 'src/app/services/barcode-service';
 import { HelperService } from 'src/app/services/helper-service';
 import { HomeService } from 'src/app/services/home-service';
-import { DispalyModalComponent } from 'src/app/shared/components/display-modal/display-modal.component';
+
 import { ResponseModalComponent } from 'src/app/shared/components/response-modal/response-modal.component';
 
 @Component({
@@ -34,7 +34,6 @@ export class BarcodeResponsePage implements OnInit {
       let data = JSON.parse(x)
       this.barcodeData.push({ ...data, checked: false });
     });
-    console.log(this.barcodeData);
   }
 
   scanBarcode() {
