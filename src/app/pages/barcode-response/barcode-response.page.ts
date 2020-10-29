@@ -82,16 +82,16 @@ export class BarcodeResponsePage implements OnInit {
 
   postAllBarcode(data: any) {
     this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
-      this.openErrorMsg(res);
+      this.openModal(res);
     }, (err: any) => {
       console.log(err);
     });
   }
 
-  async openErrorMsg(res?: any) {
+  async openModal(res?: any) {
     const modal = await this.modalController.create({
       component: ResponseModalComponent,
-      componentProps: { data: res },
+      componentProps: { responsedata: res },
       cssClass: 'modal_content',
       showBackdrop: false,
       mode: 'ios'
