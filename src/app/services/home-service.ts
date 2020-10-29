@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { environment } from 'src/environments/environment';
 import { BaseService } from "./base-service";
+import { HelperService } from './helper-service';
 
 @Injectable()
 export class HomeService {
@@ -10,6 +11,7 @@ export class HomeService {
 
     constructor(
         private baseService: BaseService,
+        private helperService: HelperService
     ) { }
 
     requestCode(data: any) {
@@ -61,9 +63,12 @@ export class HomeService {
     }
 
     xhr(url, data, callback) {
+        let self = this;
+        this.helperService.isLoading = true;
         let request = new XMLHttpRequest();
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
+                self.helperService.isLoading = false;
                 callback(request.responseText);
             }
         };
