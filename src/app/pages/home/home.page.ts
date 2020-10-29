@@ -105,9 +105,9 @@ export class HomePage implements OnInit {
       code: data.code
     }
     this.homeService.postQrCode(req).then((res: any) => {
+      let navigationExtras: NavigationExtras = { state: { data: res, req: data } };
       if (res['ERROR'] == 'ERROR') {
-        this.openErrorMsg(res);
-        // this.helperService.errorMessage(res['ERRORMSG']);
+        this.router.navigate(['/error'], navigationExtras);
       } else {
         this.homeService.pickUpObject = res;
         this.navctrl.navigateForward(['/barcode-response']);
@@ -124,27 +124,6 @@ export class HomePage implements OnInit {
     }
     localStorage.setItem('item', JSON.stringify(req));
     this.navctrl.navigateForward(['/manual']);
-  }
-
-  async openErrorMsg(res?: any) {
-    let component;
-    if ((res.receiverID || res.receiverName)) {
-      component = ResponseModalComponent;
-    } else {
-      component = DispalyModalComponent;
-    }
-    const modal = await this.modalController.create({
-      component: component,
-      componentProps: { responsedata: res },
-      cssClass: 'modal_content',
-      showBackdrop: false,
-      mode: 'ios'
-    });
-
-    await modal.present();
-
-    const data = await modal.onDidDismiss();
-    console.log(data)
   }
 
 }  

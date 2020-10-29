@@ -8,9 +8,11 @@
       </ion-col>
     </ion-row>
 
-    <div class="ion-text-center ion-padding-vertical content">
+    <div class="ion-text-center ion-padding-vertical">
       <div class="ion-text-center">
-        <h2 style="color: red;">{{responsedata.ERROR}} </h2>
+        <ion-label class="ion-text-center" color="medium">
+          <h1><b>{{responsedata.ERROR}}</b></h1>
+        </ion-label>
         <div *ngIf="responsedata.ERRORMSG" class="error-msg ion-padding" innerHtml="{{responsedata.ERRORMSG}}"></div>
         <div *ngIf="responsedata.MSGTEXT1" class="error-msg ion-padding" innerHtml="{{responsedata.MSGTEXT1}}"></div>
         <div>{{responsedata.ver}}</div>
@@ -20,9 +22,10 @@
   </div>
 
   <div class="footer ion-text-center ion-margin">
-    <ion-button class="ion-margin-vertical" expand="block" color="dark" (click)="dismiss()">
-      ZRUŠIT
-    </ion-button>
-
+    <ion-fab vertical="end" horizontal="center" color="dark" size="large" (click)="dismiss()">
+      <ion-fab-button color="dark" size="large">
+        <ion-icon name="arrow-back-sharp" size="large"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </div>
 </ion-content>
