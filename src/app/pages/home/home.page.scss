@@ -39,8 +39,8 @@ ion-content {
   right: 60px;
 }
 
-.footer {
-  position: absolute;
+ion-item.footer {
+  position: fixed;
   left: 50%;
   bottom: 0;
   -webkit-transform: translateX(-50%);

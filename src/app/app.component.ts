@@ -11,35 +11,17 @@ import { HelperService } from './services/helper-service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
-  public checkNetwork: boolean = navigator.onLine;
-
-  @HostListener("window:offline")
-  OnlineEvent(event: Event) {
-    this.helperService.hideNetworkError();
-  }
-
+  public onlineOffline: boolean = navigator.onLine;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public helperService: HelperService,
   ) {
-    this.initializeApp();
-    if (!this.checkNetwork) {
+    if (this.onlineOffline) {
+      this.initializeApp();
+    } else {
       this.helperService.showNewtworkError();
-    }
-    console.log(this.checkNetwork)
-
-    addEventListener('window:online', (event) => {
-      console.log('online', event);
-      this.checkNetwork = false;
-      this.helperService.showNewtworkError();
-    });
-    if (!this.checkNetwork) {
-      addEventListener('window:offline', () => {
-        this.helperService.hideNetworkError();
-      })
     }
   }
 
