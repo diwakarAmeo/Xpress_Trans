@@ -80,7 +80,8 @@ export class BarcodeResponsePage implements OnInit {
   }
 
   postAllBarcode(data: any) {
-    this.homeService.postAllBaecodeWithQr(data).then((res: any) => {
+    console.log(data);
+    this.homeService.postAllBarcodeWithQr(data).then((res: any) => {
       this.openModal(res);
     }, (err: any) => {
       console.log(err);

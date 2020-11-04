@@ -43,12 +43,12 @@ export class HomeService {
         return this.baseService.get(url);
     }
 
-    // postAllBaecodeWithQr(data: any) {
+    // postAllBarcodeWithQr(data: any) {
     //     const url = `XPT-MobDistribuceSVOZ.php?M=${data.phone}|${data.code}`;
     //     return this.baseService.post(url, data);
     // }
 
-    postAllBaecodeWithQr(data: any) {
+    postAllBarcodeWithQr(data: any) {
         let self = this;
         let formData = new FormData();
         let promise = new Promise((resolve, reject) => {
